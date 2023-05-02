@@ -1,0 +1,14 @@
+﻿services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Heslo1234.
+      POSTGRES_USER: admin
+      POSTGRES_DB: EmsDb
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+volumes:
+  data:

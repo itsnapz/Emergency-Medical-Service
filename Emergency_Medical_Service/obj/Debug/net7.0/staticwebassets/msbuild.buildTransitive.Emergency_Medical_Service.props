@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Emergency_Medical_Service.props" />
+</Project>
