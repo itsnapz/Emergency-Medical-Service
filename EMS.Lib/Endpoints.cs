@@ -2,7 +2,7 @@
 
 public class Endpoints
 {
-    public const string BASE = "https://localhost:44350";
+    public const string BASE = "https://localhost:7265";
     
     public const string GET_RESPONDS = "/api/responds";
     public const string GET_PATIENTS = "/api/patients";
