@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wDxZbQ3bSG3QwLBNjx0sffiayhHsfus38khCEG9tS8tcpXHv9JHvO1pzcGHsmKzn7cD8m3LNplnQdfkVI3kDyw==",
+  "dgSpecHash": "6LY7vQNOxkNrbXy4/BFr5a8vtTPoYA7vuKE3bYslVEzzmJRKRenr+Ty4k0/br8tTYETEPfYAaU3GH9O8SGdcBw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Projects\\Emergency_Medical_Service\\emergency_medical_service\\Emergency_Medical_Service.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Documents\\Projects\\Emergency_Medical_Service\\Emergency_Medical_Service\\Emergency_Medical_Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\mapster\\7.4.0-pre06\\mapster.7.4.0-pre06.nupkg.sha512",
+    "C:\\Users\\Administrator\\.nuget\\packages\\mapster.core\\1.2.1-pre04\\mapster.core.1.2.1-pre04.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.0-preview.3.23174.2\\microsoft.entityframeworkcore.8.0.0-preview.3.23174.2.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.0-preview.3.23174.2\\microsoft.entityframeworkcore.abstractions.8.0.0-preview.3.23174.2.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.0-preview.3.23174.2\\microsoft.entityframeworkcore.analyzers.8.0.0-preview.3.23174.2.nupkg.sha512",

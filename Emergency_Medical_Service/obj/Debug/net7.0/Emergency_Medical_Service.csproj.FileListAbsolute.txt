@@ -52,3 +52,5 @@ C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\emergency_me
 C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\emergency_medical_service\obj\Debug\net7.0\Emergency_Medical_Service.pdb
 C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\emergency_medical_service\obj\Debug\net7.0\Emergency_Medical_Service.genruntimeconfig.cache
 C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\emergency_medical_service\obj\Debug\net7.0\ref\Emergency_Medical_Service.dll
+C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\Emergency_Medical_Service\bin\Debug\net7.0\Mapster.dll
+C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\Emergency_Medical_Service\bin\Debug\net7.0\Mapster.Core.dll

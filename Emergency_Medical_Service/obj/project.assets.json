@@ -15,6 +15,27 @@
           }
         }
       },
+      "Mapster/7.4.0-pre06": {
+        "type": "package",
+        "dependencies": {
+          "Mapster.Core": "1.2.1-pre04"
+        },
+        "compile": {
+          "lib/net7.0/Mapster.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Mapster.dll": {}
+        }
+      },
+      "Mapster.Core/1.2.1-pre04": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Mapster.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Mapster.Core.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/8.0.0-preview.3.23174.2": {
         "type": "package",
         "dependencies": {
@@ -399,6 +420,16 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
+      },
+      "EMS.Lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/EMS.Lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EMS.Lib.dll": {}
+        }
       }
     }
   },
@@ -419,6 +450,34 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "Mapster/7.4.0-pre06": {
+      "sha512": "+hpfk4vOonrr4VAZ3x6i93puZHy3SBKm39ffCq7d8qjNTir5a9cPyvIFiqqyLlnIFXZOblMWbJEegO4RE8DJyw==",
+      "type": "package",
+      "path": "mapster/7.4.0-pre06",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/Mapster.dll",
+        "lib/net7.0/Mapster.dll",
+        "mapster.7.4.0-pre06.nupkg.sha512",
+        "mapster.nuspec"
+      ]
+    },
+    "Mapster.Core/1.2.1-pre04": {
+      "sha512": "en93KNBjIGorx2I9mEhTqBUOGb2ybMLdaZMXpwpnQVaWnERy38EoLtK9FDd8WT16IDaC0A4otmGuNI1Szlm6CQ==",
+      "type": "package",
+      "path": "mapster.core/1.2.1-pre04",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/Mapster.Core.dll",
+        "lib/net7.0/Mapster.Core.dll",
+        "mapster.core.1.2.1-pre04.nupkg.sha512",
+        "mapster.core.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore/8.0.0-preview.3.23174.2": {
@@ -1044,10 +1103,17 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "EMS.Lib/1.0.0": {
+      "type": "project",
+      "path": "../EMS.Lib/EMS.Lib.csproj",
+      "msbuildProject": "../EMS.Lib/EMS.Lib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "EMS.Lib >= 1.0.0",
+      "Mapster >= 7.4.0-pre06",
       "Microsoft.EntityFrameworkCore >= 8.0.0-preview.3.23174.2",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.0-preview.3.23174.2",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.0-preview.3"
@@ -1079,7 +1145,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Administrator\\Documents\\Projects\\Emergency_Medical_Service\\EMS.Lib\\EMS.Lib.csproj": {
+              "projectPath": "C:\\Users\\Administrator\\Documents\\Projects\\Emergency_Medical_Service\\EMS.Lib\\EMS.Lib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -1092,6 +1162,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Mapster": {
+            "target": "Package",
+            "version": "[7.4.0-pre06, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[8.0.0-preview.3.23174.2, )"

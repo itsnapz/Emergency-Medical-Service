@@ -1,8 +1,8 @@
 ﻿using EMS.Lib.Enums;
 
-namespace Emergency_Medical_Service.Data;
+namespace EMS.Lib.Models;
 
-public class Patient
+public class PatientModel
 {
     public int PatientId { get; set; }
     public string Name { get; set; }
