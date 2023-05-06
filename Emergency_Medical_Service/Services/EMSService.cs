@@ -1,4 +1,5 @@
-﻿using EMS.Lib;
+﻿using Emergency_Medical_Service.Data;
+using EMS.Lib;
 using EMS.Lib.Models;
 
 namespace Emergency_Medical_Service.Services;
@@ -21,5 +22,10 @@ public class EMSService
     public async Task<IEnumerable<PatientModel>> GetAllPatients()
     {
         return await _client.GetFromJsonAsync<IEnumerable<PatientModel>>($"{Endpoints.GET_PATIENTS}");
+    }
+
+    public async Task<IEnumerable<DoctorModel>> GetAllDoctors()
+    {
+        return await _client.GetFromJsonAsync<IEnumerable<DoctorModel>>($"{Endpoints.GET_DOCTORS}");
     }
 }

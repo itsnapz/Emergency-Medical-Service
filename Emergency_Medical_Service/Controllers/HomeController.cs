@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Emergency_Medical_Service.Models;
 using Emergency_Medical_Service.Services;
+using EMS.Lib.Models;
 
 namespace Emergency_Medical_Service.Controllers;
 
@@ -16,9 +17,19 @@ public class HomeController : Controller
         _service = new();
     }
 
+    [HttpGet]
     public IActionResult Index()
     {
-        return View();
+        LoginModel _loginModel = new LoginModel();
+        return View(_loginModel);
+    }
+    [HttpPost]
+    public IActionResult Index(LoginModel _loginModel)
+    {
+        var doctors = _service.GetAllDoctors().GetAwaiter().GetResult()
+            .FirstOrDefault(x => x.Email == _loginModel.Email && x.Password == _loginModel.Password);
+        
+        return View(_loginModel);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

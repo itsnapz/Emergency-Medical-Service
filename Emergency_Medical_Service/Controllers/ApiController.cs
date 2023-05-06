@@ -27,4 +27,10 @@ public class ApiController : Controller
     {
         return _service.GetAllPatients().Result;
     }
+
+    [HttpGet(Endpoints.GET_DOCTORS)]
+    public IEnumerable<DoctorModel> GetAllDoctors()
+    {
+        return _service.GetAllDoctors().Result;
+    }
 }
