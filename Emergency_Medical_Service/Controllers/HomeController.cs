@@ -26,10 +26,17 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Index(LoginModel _loginModel)
     {
-        var doctors = _service.GetAllDoctors().GetAwaiter().GetResult()
+        var doctor = _service.GetAllDoctors().GetAwaiter().GetResult()
             .FirstOrDefault(x => x.Email == _loginModel.Email && x.Password == _loginModel.Password);
-        
-        return View(_loginModel);
+
+        if (doctor != null)
+        {
+            return RedirectToAction("Index");
+        }
+        else
+        {
+            return RedirectToAction("Error");
+        }
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
