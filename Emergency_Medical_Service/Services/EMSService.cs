@@ -38,4 +38,9 @@ public class EMSService
     {
         return await _client.GetFromJsonAsync<IEnumerable<HospitalModel>>($"{Endpoints.GET_HOSPITALS}");
     }
+
+    public async Task<DoctorModel> GetDoctorById(int doctorId)
+    {
+        return await _client.GetFromJsonAsync<DoctorModel>($"{Endpoints.GET_DOCTOR_BY_ID}?{doctorId}");
+    }
 }

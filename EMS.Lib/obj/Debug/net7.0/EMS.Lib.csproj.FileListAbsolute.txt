@@ -10,3 +10,15 @@ C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\EMS.Lib\obj\
 C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\EMS.Lib\obj\Debug\net7.0\refint\EMS.Lib.dll
 C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\EMS.Lib\obj\Debug\net7.0\EMS.Lib.pdb
 C:\Users\Administrator\Documents\Projects\Emergency_Medical_Service\EMS.Lib\obj\Debug\net7.0\ref\EMS.Lib.dll
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\bin\Debug\net7.0\EMS.Lib.deps.json
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\bin\Debug\net7.0\EMS.Lib.dll
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\bin\Debug\net7.0\EMS.Lib.pdb
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\obj\Debug\net7.0\EMS.Lib.csproj.AssemblyReference.cache
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\obj\Debug\net7.0\EMS.Lib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\obj\Debug\net7.0\EMS.Lib.AssemblyInfoInputs.cache
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\obj\Debug\net7.0\EMS.Lib.AssemblyInfo.cs
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\obj\Debug\net7.0\EMS.Lib.csproj.CoreCompileInputs.cache
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\obj\Debug\net7.0\EMS.Lib.dll
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\obj\Debug\net7.0\refint\EMS.Lib.dll
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\obj\Debug\net7.0\EMS.Lib.pdb
+C:\Users\napz\RiderProjects\emergency-medical-service\EMS.Lib\obj\Debug\net7.0\ref\EMS.Lib.dll

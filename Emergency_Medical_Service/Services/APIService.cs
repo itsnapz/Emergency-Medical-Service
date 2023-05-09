@@ -48,4 +48,11 @@ public class APIService
 
         return Task.FromResult<IEnumerable<HospitalModel>>(hospitals);
     }
+
+    public Task<DoctorModel> GetDoctorById(int doctorId)
+    {
+        var doctor = _database.Doctors.ProjectToType<DoctorModel>().FirstOrDefault(x => x.DoctorId == doctorId);
+
+        return Task.FromResult<DoctorModel>(doctor);
+    }
 }

@@ -45,4 +45,10 @@ public class ApiController : Controller
     {
         return _service.GetAllHospitals().Result;
     }
+
+    [HttpGet(Endpoints.GET_DOCTOR_BY_ID)]
+    public DoctorModel GetDoctorById(int doctorId)
+    {
+        return _service.GetDoctorById(doctorId).Result;
+    }
 }
