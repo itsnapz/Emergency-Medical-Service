@@ -69,9 +69,11 @@ namespace Emergency_Medical_Service.Migrations
                     HospitalId = table.Column<int>(type: "integer", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
                     Surname = table.Column<string>(type: "text", nullable: false),
+                    Rank = table.Column<int>(type: "integer", nullable: false),
+                    Email = table.Column<string>(type: "text", nullable: false),
+                    Password = table.Column<string>(type: "text", nullable: false),
                     Birthday = table.Column<DateOnly>(type: "date", nullable: false),
                     PhoneNumber = table.Column<string>(type: "text", nullable: false),
-                    Rank = table.Column<int>(type: "integer", nullable: false),
                     CallSign = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>

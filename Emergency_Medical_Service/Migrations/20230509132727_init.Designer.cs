@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Emergency_Medical_Service.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230503075854_init8")]
-    partial class init8
+    [Migration("20230509132727_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,6 +61,10 @@ namespace Emergency_Medical_Service.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<int>("HospitalId")
                         .HasColumnType("integer");
 
@@ -68,9 +72,16 @@ namespace Emergency_Medical_Service.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("Rank")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Surname")
                         .IsRequired()

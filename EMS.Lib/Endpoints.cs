@@ -8,7 +8,7 @@ public class Endpoints
     public const string GET_PATIENTS = "/api/patients";
     public const string GET_DOCTORS = "/api/doctors";
     public const string GET_CARS = "/api/cars";
-    public const string GET_HOSPITALS = "/api/hospital";
+    public const string GET_HOSPITALS = "/api/hospitals";
 
     public const string GET_RESPOND_BY_ID = "/api/respond";
     public const string GET_PATIENT_BY_ID = "/api/patient";

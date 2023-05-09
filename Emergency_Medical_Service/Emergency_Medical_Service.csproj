@@ -27,4 +27,8 @@
       <ProjectReference Include="..\EMS.Lib\EMS.Lib.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Migrations\" />
+    </ItemGroup>
+
 </Project>

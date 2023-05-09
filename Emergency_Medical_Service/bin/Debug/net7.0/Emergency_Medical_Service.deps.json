@@ -282,6 +282,11 @@
         }
       },
       "EMS.Lib/1.0.0": {
+        "dependencies": {
+          "Mapster": "7.4.0-pre06",
+          "Microsoft.EntityFrameworkCore": "8.0.0-preview.3.23174.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.0-preview.3"
+        },
         "runtime": {
           "EMS.Lib.dll": {}
         }

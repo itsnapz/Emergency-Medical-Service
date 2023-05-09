@@ -424,6 +424,11 @@
       "EMS.Lib/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Mapster": "7.4.0-pre06",
+          "Microsoft.EntityFrameworkCore": "8.0.0-preview.3.23174.2",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.0-preview.3"
+        },
         "compile": {
           "bin/placeholder/EMS.Lib.dll": {}
         },
