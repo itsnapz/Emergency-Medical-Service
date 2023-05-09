@@ -28,4 +28,14 @@ public class EMSService
     {
         return await _client.GetFromJsonAsync<IEnumerable<DoctorModel>>($"{Endpoints.GET_DOCTORS}");
     }
+
+    public async Task<IEnumerable<CarModel>> GetAllCars()
+    {
+        return await _client.GetFromJsonAsync<IEnumerable<CarModel>>($"{Endpoints.GET_CARS}");
+    }
+
+    public async Task<IEnumerable<HospitalModel>> GetAllHospitals()
+    {
+        return await _client.GetFromJsonAsync<IEnumerable<HospitalModel>>($"{Endpoints.GET_HOSPITALS}");
+    }
 }

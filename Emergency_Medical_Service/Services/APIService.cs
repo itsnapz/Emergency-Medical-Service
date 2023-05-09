@@ -34,4 +34,18 @@ public class APIService
 
         return Task.FromResult<IEnumerable<DoctorModel>>(doctors);
     }
+
+    public Task<IEnumerable<CarModel>> GetAllCars()
+    {
+        var cars = _database.Cars.ProjectToType<CarModel>();
+
+        return Task.FromResult<IEnumerable<CarModel>>(cars);
+    }
+
+    public Task<IEnumerable<HospitalModel>> GetAllHospitals()
+    {
+        var hospitals = _database.Hospitals.ProjectToType<HospitalModel>();
+
+        return Task.FromResult<IEnumerable<HospitalModel>>(hospitals);
+    }
 }

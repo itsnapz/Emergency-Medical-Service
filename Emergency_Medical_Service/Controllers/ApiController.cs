@@ -33,4 +33,16 @@ public class ApiController : Controller
     {
         return _service.GetAllDoctors().Result;
     }
+
+    [HttpGet(Endpoints.GET_CARS)]
+    public IEnumerable<CarModel> GetAllCars()
+    {
+        return _service.GetAllCars().Result;
+    }
+
+    [HttpGet(Endpoints.GET_HOSPITALS)]
+    public IEnumerable<HospitalModel> GetAllHospitals()
+    {
+        return _service.GetAllHospitals().Result;
+    }
 }
