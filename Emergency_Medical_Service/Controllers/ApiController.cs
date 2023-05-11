@@ -51,4 +51,28 @@ public class ApiController : Controller
     {
         return _service.GetDoctorById(doctorId).Result;
     }
+
+    [HttpGet(Endpoints.GET_RESPOND_BY_ID)]
+    public RespondModel GetRespondById(int respondId)
+    {
+        return _service.GetRespondById(respondId).Result;
+    }
+
+    [HttpGet(Endpoints.GET_PATIENT_BY_ID)]
+    public PatientModel GetPatientById(int patientId)
+    {
+        return _service.GetPatientById(patientId).Result;
+    }
+
+    [HttpGet(Endpoints.GET_CAR_BY_ID)]
+    public CarModel GetCarById(int carId)
+    {
+        return _service.GetCarById(carId).Result;
+    }
+
+    [HttpGet(Endpoints.GET_HOSPITAL_BY_ID)]
+    public HospitalModel GetHospitalById(int hospitalId)
+    {
+        return _service.GetHospitalById(hospitalId).Result;
+    }
 }

@@ -55,4 +55,33 @@ public class APIService
 
         return Task.FromResult<DoctorModel>(doctor);
     }
+
+    public Task<RespondModel> GetRespondById(int respondId)
+    {
+        var respond = _database.Responds.ProjectToType<RespondModel>().FirstOrDefault(x => x.RespondId == respondId);
+
+        return Task.FromResult<RespondModel>(respond);
+    }
+
+    public Task<PatientModel> GetPatientById(int patientId)
+    {
+        var patient = _database.Patients.ProjectToType<PatientModel>().FirstOrDefault(x => x.PatientId == patientId);
+
+        return Task.FromResult<PatientModel>(patient);
+    }
+
+    public Task<CarModel> GetCarById(int carId)
+    {
+        var car = _database.Cars.ProjectToType<CarModel>().FirstOrDefault(x => x.CarId == carId);
+
+        return Task.FromResult<CarModel>(car);
+    }
+
+    public Task<HospitalModel> GetHospitalById(int hospitalId)
+    {
+        var hospital = _database.Hospitals.ProjectToType<HospitalModel>()
+            .FirstOrDefault(x => x.HospitalId == hospitalId);
+
+        return Task.FromResult<HospitalModel>(hospital);
+    }
 }

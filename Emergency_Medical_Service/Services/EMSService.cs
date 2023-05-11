@@ -43,4 +43,24 @@ public class EMSService
     {
         return await _client.GetFromJsonAsync<DoctorModel>($"{Endpoints.GET_DOCTOR_BY_ID}?{doctorId}");
     }
+
+    public async Task<RespondModel> GetRespondById(int respondId)
+    {
+        return await _client.GetFromJsonAsync<RespondModel>($"{Endpoints.GET_RESPOND_BY_ID}?{respondId}");
+    }
+
+    public async Task<PatientModel> GetPatientById(int patientId)
+    {
+        return await _client.GetFromJsonAsync<PatientModel>($"{Endpoints.GET_PATIENT_BY_ID}?{patientId}");
+    }
+
+    public async Task<CarModel> GetCarById(int carId)
+    {
+        return await _client.GetFromJsonAsync<CarModel>($"{Endpoints.GET_CAR_BY_ID}?{carId}");
+    }
+
+    public async Task<HospitalModel> GetHospitalById(int hospitalId)
+    {
+        return await _client.GetFromJsonAsync<HospitalModel>($"{Endpoints.GET_HOSPITAL_BY_ID}?{hospitalId}");
+    }
 }
