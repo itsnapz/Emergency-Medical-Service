@@ -1,0 +1,51 @@
+﻿@model System.Collections.Generic.IEnumerable<EMS.Lib.Models.RespondModel>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div>
+    <table>
+        <tr>
+            <th>Respond ID</th>
+            <th>Doctor</th>
+            <th>Car</th>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Street</th>
+            <th>Postal</th>
+        </tr>
+        @foreach (var respond in Model)
+        {
+            <tr>
+                <td>@respond.RespondId</td>
+                <td>@respond.DoctorModel.Name @respond.DoctorModel.Surname</td>
+                <td>@respond.CarModel.Name</td>
+                <td>@respond.PatientModel.Name @respond.PatientModel.Surname</td>
+                <td>@respond.Date</td>
+                <td>@respond.Street</td>
+                <td>@respond.Postal</td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+</style>

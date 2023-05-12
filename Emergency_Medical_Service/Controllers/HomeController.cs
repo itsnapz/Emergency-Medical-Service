@@ -31,12 +31,50 @@ public class HomeController : Controller
 
         if (doctor != null)
         {
-            return RedirectToAction("Index");
+            _loginModel.LoggedIn = true;
+            return RedirectToAction("Error");
         }
         else
         {
             return RedirectToAction("Error");
         }
+    }
+
+    public IActionResult Responds()
+    {
+        var responds = _service.GetAllResponds().GetAwaiter().GetResult();
+        var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
+        var patients = _service.GetAllPatients().GetAwaiter().GetResult();
+        var cars = _service.GetAllCars().GetAwaiter().GetResult();
+
+        foreach (var item in responds)
+        {
+            item.DoctorModel = doctors.FirstOrDefault(x => x.DoctorId == item.DoctorId);
+            item.PatientModel = patients.FirstOrDefault(x => x.PatientId == item.PatientId);
+            item.CarModel = cars.FirstOrDefault(x => x.CarId == item.CarId);
+        }
+
+        return View(responds);
+    }
+
+    public IActionResult Patients()
+    {
+        return View();
+    }
+
+    public IActionResult Doctors()
+    {
+        return View();
+    }
+
+    public IActionResult Cars()
+    {
+        return View();
+    }
+
+    public IActionResult Hospitals()
+    {
+        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

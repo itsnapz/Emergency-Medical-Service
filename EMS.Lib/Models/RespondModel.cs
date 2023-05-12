@@ -9,4 +9,8 @@ public class RespondModel
     public DateTime Date { get; set; }
     public string Street { get; set; }
     public string Postal { get; set; }
+    
+    public DoctorModel? DoctorModel { get; set; }
+    public PatientModel? PatientModel { get; set; }
+    public CarModel? CarModel { get; set; }
 }
