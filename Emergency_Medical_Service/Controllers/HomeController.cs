@@ -59,22 +59,36 @@ public class HomeController : Controller
 
     public IActionResult Patients()
     {
-        return View();
+        var patients = _service.GetAllPatients().GetAwaiter().GetResult();
+        
+        return View(patients);
     }
 
     public IActionResult Doctors()
     {
-        return View();
+        var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
+        var hospitals = _service.GetAllHospitals().GetAwaiter().GetResult();
+
+        foreach (var doctor in doctors)
+        {
+            doctor.HospitalModel = hospitals.FirstOrDefault(x => x.HospitalId == doctor.HospitalId);
+        }
+        
+        return View(doctors);
     }
 
     public IActionResult Cars()
     {
-        return View();
+        var cars = _service.GetAllCars().GetAwaiter().GetResult();
+        
+        return View(cars);
     }
 
     public IActionResult Hospitals()
     {
-        return View();
+        var hospitals = _service.GetAllHospitals().GetAwaiter().GetResult();
+        
+        return View(hospitals);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

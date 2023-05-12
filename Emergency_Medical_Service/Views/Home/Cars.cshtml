@@ -1,8 +1,43 @@
-﻿@model dynamic
+﻿@model IEnumerable<EMS.Lib.Models.CarModel>
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>Cars</h2>
+<div>
+    <table>
+        <tr>
+            <th>Car ID</th>
+            <th>Name</th>
+            <th>Plate</th>
+        </tr>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.CarId</td>
+                <td>@car.Name</td>
+                <td>@car.Plate</td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+</style>

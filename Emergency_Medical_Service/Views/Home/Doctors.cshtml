@@ -1,8 +1,53 @@
-﻿@model dynamic
+﻿@model IEnumerable<EMS.Lib.Models.DoctorModel>
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>Doctors</h2>
+<div>
+    <table>
+        <tr>
+            <th>Doctor ID</th>
+            <th>Hospital</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Rank</th>
+            <th>Birthday</th>
+            <th>Phone Number</th>
+            <th>Call Sign</th>
+        </tr>
+        @foreach (var doctor in Model)
+        {
+            <tr>
+                <td>@doctor.DoctorId</td>
+                <td>@doctor.HospitalModel.Name</td>
+                <td>@doctor.Name</td>
+                <td>@doctor.Surname</td>
+                <td>@doctor.Rank</td>
+                <td>@doctor.Birthday</td>
+                <td>@doctor.PhoneNumber</td>
+                <td>@doctor.CallSign</td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+</style>
