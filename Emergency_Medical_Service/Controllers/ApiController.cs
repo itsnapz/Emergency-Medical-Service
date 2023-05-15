@@ -83,4 +83,36 @@ public class ApiController : Controller
 
         return Ok();
     }
+
+    [HttpPost(Endpoints.ADD_PATIENT)]
+    public IActionResult AddPatient(PatientModel model)
+    {
+        _service.AddPatient(model);
+
+        return Ok();
+    }
+
+    [HttpPost(Endpoints.ADD_DOCTOR)]
+    public IActionResult AddDoctor(DoctorModel model)
+    {
+        _service.AddDoctor(model);
+
+        return Ok();
+    }
+
+    [HttpPost(Endpoints.ADD_CAR)]
+    public IActionResult AddCar(CarModel model)
+    {
+        _service.AddCar(model);
+
+        return Ok();
+    }
+
+    [HttpPost(Endpoints.ADD_HOSPITAL)]
+    public IActionResult AddHospital(HospitalModel model)
+    {
+        _service.AddHospital(model);
+
+        return Ok();
+    }
 }

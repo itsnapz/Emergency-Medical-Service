@@ -68,4 +68,24 @@ public class EMSService
     {
         await _client.PostAsJsonAsync<RespondModel>("/api/add/respond", model);
     }
+
+    public async Task AddPatient(PatientModel model)
+    {
+        await _client.PostAsJsonAsync<PatientModel>("/api/add/patient", model);
+    }
+
+    public async Task AddDoctor(DoctorModel model)
+    {
+        await _client.PostAsJsonAsync<DoctorModel>("/api/add/doctor", model);
+    }
+
+    public async Task AddCar(CarModel model)
+    {
+        await _client.PostAsJsonAsync<CarModel>("/api/add/car", model);
+    }
+
+    public async Task AddHospital(HospitalModel model)
+    {
+        await _client.PostAsJsonAsync<HospitalModel>("/api/add/hospital", model);
+    }
 }

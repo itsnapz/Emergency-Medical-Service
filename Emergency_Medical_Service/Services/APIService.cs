@@ -94,4 +94,36 @@ public class APIService
         return Task.CompletedTask;
     }
 
+    public Task AddPatient(PatientModel model)
+    {
+        _database.Patients.Add(model.Adapt<Patient>());
+        _database.SaveChanges();
+
+        return Task.CompletedTask;
+    }
+
+    public Task AddDoctor(DoctorModel model)
+    {
+        _database.Doctors.Add(model.Adapt<Doctor>());
+        _database.SaveChanges();
+        
+        return Task.CompletedTask;
+    }
+
+    public Task AddCar(CarModel model)
+    {
+        _database.Cars.Add(model.Adapt<Car>());
+        _database.SaveChanges();
+
+        return Task.CompletedTask;
+    }
+
+    public Task AddHospital(HospitalModel model)
+    {
+        _database.Hospitals.Add(model.Adapt<Hospital>());
+        _database.SaveChanges();
+
+        return Task.CompletedTask;
+    }
+
 }
