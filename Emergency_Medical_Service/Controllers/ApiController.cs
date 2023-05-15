@@ -115,4 +115,11 @@ public class ApiController : Controller
 
         return Ok();
     }
+
+    public IActionResult EditRespond(RespondModel model)
+    {
+        _service.EditRespond(model);
+
+        return Ok();
+    }
 }
