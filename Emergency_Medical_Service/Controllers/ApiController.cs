@@ -75,4 +75,12 @@ public class ApiController : Controller
     {
         return _service.GetHospitalById(hospitalId).Result;
     }
+
+    [HttpPost(Endpoints.ADD_RESPOND)]
+    public IActionResult AddRespond(RespondModel model)
+    {
+        _service.AddRespond(model);
+
+        return Ok();
+    }
 }

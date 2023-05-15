@@ -15,4 +15,10 @@ public class Endpoints
     public const string GET_DOCTOR_BY_ID = "/api/doctor";
     public const string GET_CAR_BY_ID = "/api/car";
     public const string GET_HOSPITAL_BY_ID = "/api/hospital";
+
+    public const string ADD_RESPOND = "/api/add/respond";
+    public const string ADD_PATIENT = "/api/add/patient";
+    public const string ADD_DOCTOR = "/api/add/doctor";
+    public const string ADD_CAR = "/api/add/car";
+    public const string ADD_HOSPITAL = "/api/add/hospital";
 }

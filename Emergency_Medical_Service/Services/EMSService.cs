@@ -63,4 +63,9 @@ public class EMSService
     {
         return await _client.GetFromJsonAsync<HospitalModel>($"{Endpoints.GET_HOSPITAL_BY_ID}?{hospitalId}");
     }
+
+    public async Task AddRespond(RespondModel model)
+    {
+        await _client.PostAsJsonAsync<RespondModel>("/api/add/respond", model);
+    }
 }
