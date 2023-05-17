@@ -16,4 +16,6 @@ public class DoctorModel
     public string CallSign { get; set; }
 
     public HospitalModel? HospitalModel { get; set; }
+    
+    public string FullName { get { return this.Name + " " + this.Surname; } }
 }

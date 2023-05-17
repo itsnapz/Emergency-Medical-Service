@@ -12,4 +12,6 @@ public class PatientModel
     public string PhoneNumber { get; set; }
     public string Street { get; set; }
     public string Postal { get; set; }
+
+    public string FullName { get { return this.Name + " " + this.Surname;} }
 }

@@ -90,32 +90,52 @@ public class ApiController : Controller
     }
 
     [HttpPost(Endpoints.ADD_PATIENT)]
-    public IActionResult AddPatient(PatientModel model)
+    public IActionResult AddPatient([FromBody] PatientModel model)
     {
+        if (model == null)
+        {
+            return BadRequest();
+        }
+        
         _service.AddPatient(model);
 
         return Ok();
     }
 
     [HttpPost(Endpoints.ADD_DOCTOR)]
-    public IActionResult AddDoctor(DoctorModel model)
+    public IActionResult AddDoctor([FromBody] DoctorModel model)
     {
+        if (model == null)
+        {
+            return BadRequest();
+        }
+        
         _service.AddDoctor(model);
 
         return Ok();
     }
 
     [HttpPost(Endpoints.ADD_CAR)]
-    public IActionResult AddCar(CarModel model)
+    public IActionResult AddCar([FromBody] CarModel model)
     {
+        if (model == null)
+        {
+            return BadRequest();
+        }
+        
         _service.AddCar(model);
 
         return Ok();
     }
 
     [HttpPost(Endpoints.ADD_HOSPITAL)]
-    public IActionResult AddHospital(HospitalModel model)
+    public IActionResult AddHospital([FromBody] HospitalModel model)
     {
+        if (model == null)
+        {
+            return BadRequest();
+        }
+        
         _service.AddHospital(model);
 
         return Ok();

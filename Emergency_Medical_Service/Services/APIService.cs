@@ -94,36 +94,32 @@ public class APIService
         _database.SaveChanges();
     }
 
-    public Task AddPatient(PatientModel model)
+    public void AddPatient(PatientModel model)
     {
-        _database.Patients.Add(model.Adapt<Patient>());
+        var dto = model.Adapt<Patient>();
+        _database.Patients.Add(dto);
         _database.SaveChanges();
-
-        return Task.CompletedTask;
     }
 
-    public Task AddDoctor(DoctorModel model)
+    public void AddDoctor(DoctorModel model)
     {
-        _database.Doctors.Add(model.Adapt<Doctor>());
+        var dto = model.Adapt<Doctor>();
+        _database.Doctors.Add(dto);
         _database.SaveChanges();
-        
-        return Task.CompletedTask;
     }
 
-    public Task AddCar(CarModel model)
+    public void AddCar(CarModel model)
     {
-        _database.Cars.Add(model.Adapt<Car>());
+        var dto = model.Adapt<Car>();
+        _database.Cars.Add(dto);
         _database.SaveChanges();
-
-        return Task.CompletedTask;
     }
 
-    public Task AddHospital(HospitalModel model)
+    public void AddHospital(HospitalModel model)
     {
-        _database.Hospitals.Add(model.Adapt<Hospital>());
+        var dto = model.Adapt<Hospital>();
+        _database.Hospitals.Add(dto);
         _database.SaveChanges();
-
-        return Task.CompletedTask;
     }
 
     public Task EditRespond(RespondModel model)

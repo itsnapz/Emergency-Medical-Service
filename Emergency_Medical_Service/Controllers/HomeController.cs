@@ -104,9 +104,9 @@ public class HomeController : Controller
         //model.Cars = _service.GetAllCars().GetAwaiter().GetResult();
         //model.Patients = _service.GetAllPatients().GetAwaiter().GetResult();
         RespondModel r = new RespondModel();
-        r.Doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
-        r.Patients = _service.GetAllPatients().GetAwaiter().GetResult();
-        r.Cars = _service.GetAllCars().GetAwaiter().GetResult();
+        r.Doctors = _service.GetAllDoctors().GetAwaiter().GetResult().ToList();
+        r.Patients = _service.GetAllPatients().GetAwaiter().GetResult().ToList();
+        r.Cars = _service.GetAllCars().GetAwaiter().GetResult().ToList();
         
 
         return View(r);
@@ -115,14 +115,8 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> AddRespond(RespondModel r)
     {
-        RespondModel a = new RespondModel();
-        a.CarId = 1;
-        a.DoctorId = 1;
-        a.PatientId = 1;
-        a.Date = DateTime.Now;
-        a.Street = "cjng";
-        a.Postal = "1337";
-        await _service.AddRespond(a);
+        r.Date = DateTime.Now.ToShortDateString();
+        await _service.AddRespond(r);
 
         return RedirectToAction("Responds");
     }

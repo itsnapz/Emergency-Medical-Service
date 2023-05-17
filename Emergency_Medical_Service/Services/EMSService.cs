@@ -66,8 +66,8 @@ public class EMSService
     }
 
     public async Task AddRespond(RespondModel model)
-    {
-        await _client.PostAsJsonAsync(Endpoints.ADD_RESPOND, model);
+    { 
+        _client.PostAsJsonAsync(Endpoints.ADD_RESPOND, model).GetAwaiter().GetResult();
     }
 
     public async Task AddPatient(PatientModel model)

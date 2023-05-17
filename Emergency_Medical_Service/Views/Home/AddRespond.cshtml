@@ -7,26 +7,11 @@
 
 <div>
     <form asp-action="AddRespond">
-        <select asp-for="DoctorId">
-            @foreach (var doctor in Model.Doctors)
-            {
-                <option value="doctor.DoctorId">@doctor.Name @doctor.Surname</option>
-            }
-        </select>
-        <select asp-for="PatientId">
-            @foreach (var patient in Model.Patients)
-            {
-                <option value="patient.PatientId">@patient.Name @patient.Surname</option>
-            }
-        </select>
-        <select asp-for="CarId">
-            @foreach (var car in Model.Cars)
-            {
-                <option value="car.CarId">@car.Name - @car.Plate</option>
-            }
-        </select>
+        <select asp-items="@(new SelectList(Model.Doctors, "DoctorId", "FullName"))" asp-for="DoctorId"></select>
+        <select asp-items="@(new SelectList(Model.Patients, "PatientId", "FullName"))" asp-for="PatientId"></select>
+        <select asp-items="@(new SelectList(Model.Cars, "CarId", "Name"))" asp-for="CarId"></select>
         <input type="text" placeholder="Street" asp-for="Street"/>
         <input type="text" placeholder="Postal" asp-for="Postal"/>
-        <button type="submit">Submit</button>
+        <button type="submit">Save</button>
     </form>
 </div>
