@@ -1,6 +1,7 @@
 ﻿using Emergency_Medical_Service.Data;
 using EMS.Lib;
 using EMS.Lib.Models;
+using Mapster;
 
 namespace Emergency_Medical_Service.Services;
 
@@ -66,22 +67,22 @@ public class EMSService
 
     public async Task AddRespond(RespondModel model)
     {
-        await _client.PostAsJsonAsync<RespondModel>("/api/add/respond", model);
+        await _client.PostAsJsonAsync(Endpoints.ADD_RESPOND, model);
     }
 
     public async Task AddPatient(PatientModel model)
     {
-        await _client.PostAsJsonAsync<PatientModel>("/api/add/patient", model);
+        await _client.PostAsJsonAsync("/api/add/patient", model);
     }
 
     public async Task AddDoctor(DoctorModel model)
     {
-        await _client.PostAsJsonAsync<DoctorModel>("/api/add/doctor", model);
+        await _client.PostAsJsonAsync("/api/add/doctor", model);
     }
 
     public async Task AddCar(CarModel model)
     {
-        await _client.PostAsJsonAsync<CarModel>("/api/add/car", model);
+        await _client.PostAsJsonAsync("/api/add/car", model);
     }
 
     public async Task AddHospital(HospitalModel model)

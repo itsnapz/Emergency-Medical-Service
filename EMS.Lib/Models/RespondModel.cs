@@ -16,5 +16,5 @@ public class RespondModel
     
     public IEnumerable<DoctorModel>? Doctors { get; set; }
     public IEnumerable<CarModel>? Cars { get; set; }
-    public IEnumerable<PatientModel> Patients { get; set; }
+    public IEnumerable<PatientModel>? Patients { get; set; }
 }

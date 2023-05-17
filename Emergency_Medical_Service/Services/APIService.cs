@@ -3,6 +3,7 @@ using Emergency_Medical_Service.Data;
 using EMS.Lib.Models;
 using Mapster;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Emergency_Medical_Service.Services;
 
@@ -86,12 +87,11 @@ public class APIService
         return Task.FromResult<HospitalModel>(hospital);
     }
 
-    public Task AddRespond(RespondModel model)
+    public void AddRespond(RespondModel model)
     {
-        _database.Responds.Add(model.Adapt<Respond>());
+        var dto = model.Adapt<Respond>();
+        _database.Responds.Add(dto);
         _database.SaveChanges();
-
-        return Task.CompletedTask;
     }
 
     public Task AddPatient(PatientModel model)

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Dynamic;
+using System.Runtime.InteropServices.JavaScript;
 using Emergency_Medical_Service.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Emergency_Medical_Service.Models;
@@ -114,8 +115,14 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> AddRespond(RespondModel r)
     {
-        r.Date = DateTime.Now;
-        await _service.AddRespond(r);
+        RespondModel a = new RespondModel();
+        a.CarId = 1;
+        a.DoctorId = 1;
+        a.PatientId = 1;
+        a.Date = DateTime.Now;
+        a.Street = "cjng";
+        a.Postal = "1337";
+        await _service.AddRespond(a);
 
         return RedirectToAction("Responds");
     }

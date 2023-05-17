@@ -77,8 +77,13 @@ public class ApiController : Controller
     }
 
     [HttpPost(Endpoints.ADD_RESPOND)]
-    public IActionResult AddRespond(RespondModel model)
+    public IActionResult AddRespond([FromBody] RespondModel? model)
     {
+        if (model == null)
+        {
+            return BadRequest();
+        }
+        
         _service.AddRespond(model);
 
         return Ok();
