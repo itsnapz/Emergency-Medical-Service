@@ -121,6 +121,23 @@ public class HomeController : Controller
         return RedirectToAction("Responds");
     }
 
+    [HttpGet]
+    public IActionResult AddDoctor()
+    {
+        DoctorModel d = new DoctorModel();
+        d.Hospitals = _service.GetAllHospitals().GetAwaiter().GetResult().ToList();
+        
+        return View(d);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddDoctor(DoctorModel d)
+    {
+        await _service.AddDoctor(d);
+
+        return RedirectToAction("Doctors");
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

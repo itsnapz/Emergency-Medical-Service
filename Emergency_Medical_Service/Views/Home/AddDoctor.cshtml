@@ -1,0 +1,18 @@
+﻿@model EMS.Lib.Models.DoctorModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div>
+    <form asp-action="AddRespond">
+        <select asp-items="@(new SelectList(Model.Hospitals, "HospitalId", "Name"))" asp-for="HospitalId"></select>
+        <input type="text" placeholder="Street" asp-for="Name"/>
+        <input type="text" placeholder="Postal" asp-for="Surname"/>
+        <input type="date" asp-for="Birthday"/>
+        <input type="text" placeholder="Phone number" asp-for="PhoneNumber"/>
+        <input type="text" placeholder="Call sign" asp-for="CallSign"/>
+        <button type="submit">Save</button>
+    </form>
+</div>
