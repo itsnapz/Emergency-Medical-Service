@@ -13,4 +13,8 @@ public class RespondModel
     public DoctorModel? DoctorModel { get; set; }
     public PatientModel? PatientModel { get; set; }
     public CarModel? CarModel { get; set; }
+    
+    public IEnumerable<DoctorModel>? Doctors { get; set; }
+    public IEnumerable<CarModel>? Cars { get; set; }
+    public IEnumerable<PatientModel> Patients { get; set; }
 }

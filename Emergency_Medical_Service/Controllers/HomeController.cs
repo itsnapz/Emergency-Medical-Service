@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Dynamic;
+using Emergency_Medical_Service.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Emergency_Medical_Service.Models;
 using Emergency_Medical_Service.Services;
@@ -6,6 +8,7 @@ using EMS.Lib.Models;
 
 namespace Emergency_Medical_Service.Controllers;
 
+[Authentication]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -16,13 +19,14 @@ public class HomeController : Controller
         _logger = logger;
         _service = new();
     }
-
+    
     [HttpGet]
     public IActionResult Index()
     {
         LoginModel _loginModel = new LoginModel();
         return View(_loginModel);
     }
+    
     [HttpPost]
     public IActionResult Index(LoginModel _loginModel)
     {
@@ -39,7 +43,7 @@ public class HomeController : Controller
             return RedirectToAction("Error");
         }
     }
-
+    
     public IActionResult Responds()
     {
         var responds = _service.GetAllResponds().GetAwaiter().GetResult();
@@ -56,14 +60,14 @@ public class HomeController : Controller
 
         return View(responds);
     }
-
+    
     public IActionResult Patients()
     {
         var patients = _service.GetAllPatients().GetAwaiter().GetResult();
         
         return View(patients);
     }
-
+    
     public IActionResult Doctors()
     {
         var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
@@ -76,7 +80,7 @@ public class HomeController : Controller
         
         return View(doctors);
     }
-
+    
     public IActionResult Cars()
     {
         var cars = _service.GetAllCars().GetAwaiter().GetResult();
@@ -89,6 +93,31 @@ public class HomeController : Controller
         var hospitals = _service.GetAllHospitals().GetAwaiter().GetResult();
         
         return View(hospitals);
+    }
+
+    [HttpGet]
+    public IActionResult AddRespond()
+    {
+        //dynamic model = new ExpandoObject();
+        //model.Doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
+        //model.Cars = _service.GetAllCars().GetAwaiter().GetResult();
+        //model.Patients = _service.GetAllPatients().GetAwaiter().GetResult();
+        RespondModel r = new RespondModel();
+        r.Doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
+        r.Patients = _service.GetAllPatients().GetAwaiter().GetResult();
+        r.Cars = _service.GetAllCars().GetAwaiter().GetResult();
+        
+
+        return View(r);
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> AddRespond(RespondModel r)
+    {
+        r.Date = DateTime.Now;
+        await _service.AddRespond(r);
+
+        return RedirectToAction("Responds");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
