@@ -186,6 +186,31 @@ public class HomeController : Controller
         return RedirectToAction("Hospitals");
     }
 
+    [HttpGet]
+    public IActionResult DeleteRespond(int respondId)
+    {
+        var respond = _service.GetAllResponds().GetAwaiter().GetResult()
+            .FirstOrDefault(x => x.RespondId == respondId);
+
+        return View(respond);
+    }
+
+    [HttpPost]
+    public IActionResult DeleteRespond(RespondModel model)
+    {
+        var respond = _service.GetAllResponds().GetAwaiter().GetResult()
+            .FirstOrDefault(x => x.RespondId == model.RespondId);
+        
+        if (respond == null)
+        {
+            return RedirectToAction("Responds");
+        }
+
+        _service.DeleteRespond(respond.RespondId);
+
+        return RedirectToAction("Responds");
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

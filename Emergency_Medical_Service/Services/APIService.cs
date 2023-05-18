@@ -121,4 +121,12 @@ public class APIService
         _database.Hospitals.Add(dto);
         _database.SaveChanges();
     }
+
+    public void DeleteRespond(int respondId)
+    {
+        var respond = _database.Responds.FirstOrDefault(x => x.RespondId == respondId);
+        
+        _database.Responds.Remove(respond);
+        _database.SaveChanges();
+    }
 }

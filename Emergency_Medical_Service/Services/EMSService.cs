@@ -66,27 +66,32 @@ public class EMSService
     }
 
     public async Task AddRespond(RespondModel model)
-    { 
-        _client.PostAsJsonAsync(Endpoints.ADD_RESPOND, model).GetAwaiter().GetResult();
+    {
+        await _client.PostAsJsonAsync(Endpoints.ADD_RESPOND, model);
     }
 
     public async Task AddPatient(PatientModel model)
     {
-        await _client.PostAsJsonAsync("/api/add/patient", model);
+        await _client.PostAsJsonAsync(Endpoints.ADD_PATIENT, model);
     }
 
     public async Task AddDoctor(DoctorModel model)
     {
-        await _client.PostAsJsonAsync("/api/add/doctor", model);
+        await _client.PostAsJsonAsync(Endpoints.ADD_DOCTOR, model);
     }
 
     public async Task AddCar(CarModel model)
     {
-        await _client.PostAsJsonAsync("/api/add/car", model);
+        await _client.PostAsJsonAsync(Endpoints.ADD_CAR, model);
     }
 
     public async Task AddHospital(HospitalModel model)
     {
-        await _client.PostAsJsonAsync<HospitalModel>("/api/add/hospital", model);
+        await _client.PostAsJsonAsync(Endpoints.ADD_HOSPITAL, model);
+    }
+
+    public async Task DeleteRespond(int respondId)
+    {
+        await _client.PostAsJsonAsync(Endpoints.DELETE_RESPOND, respondId);
     }
 }

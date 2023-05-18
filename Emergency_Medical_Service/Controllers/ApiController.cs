@@ -140,4 +140,17 @@ public class ApiController : Controller
 
         return Ok();
     }
+
+    [HttpPost(Endpoints.DELETE_RESPOND)]
+    public IActionResult DeleteRespond(int respondId)
+    {
+        if (respondId == null)
+        {
+            return BadRequest();
+        }
+        
+        _service.DeleteRespond(respondId);
+
+        return Ok();
+    }
 }

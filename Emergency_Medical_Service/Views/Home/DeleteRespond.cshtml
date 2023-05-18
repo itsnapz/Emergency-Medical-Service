@@ -1,0 +1,14 @@
+﻿@model EMS.Lib.Models.RespondModel?
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div>
+    <form asp-action="DeleteRespond">
+        @Html.HiddenFor(x=>x.RespondId)
+        <h2 style="color: black">Do you really want to delete this respond?</h2>
+        <button type="submit">Save</button>
+    </form>
+</div>
