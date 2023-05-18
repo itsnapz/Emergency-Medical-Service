@@ -121,21 +121,4 @@ public class APIService
         _database.Hospitals.Add(dto);
         _database.SaveChanges();
     }
-
-    public Task EditRespond(RespondModel model)
-    {
-        var respond = _database.Responds.FirstOrDefault(x => x.RespondId == model.RespondId);
-
-        respond.DoctorId = model.DoctorId;
-        respond.PatientId = model.PatientId;
-        respond.CarId = model.CarId;
-        respond.Date = model.Date;
-        respond.Postal = model.Postal;
-        respond.Street = model.Street;
-
-        _database.SaveChanges();
-
-        return Task.CompletedTask;
-    }
-
 }

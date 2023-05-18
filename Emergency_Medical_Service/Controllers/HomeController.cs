@@ -99,10 +99,6 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult AddRespond()
     {
-        //dynamic model = new ExpandoObject();
-        //model.Doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
-        //model.Cars = _service.GetAllCars().GetAwaiter().GetResult();
-        //model.Patients = _service.GetAllPatients().GetAwaiter().GetResult();
         RespondModel r = new RespondModel();
         r.Doctors = _service.GetAllDoctors().GetAwaiter().GetResult().ToList();
         r.Patients = _service.GetAllPatients().GetAwaiter().GetResult().ToList();
@@ -133,9 +129,61 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> AddDoctor(DoctorModel d)
     {
+        d.Birthday.ToString();
+        
         await _service.AddDoctor(d);
 
         return RedirectToAction("Doctors");
+    }
+
+    [HttpGet]
+    public IActionResult AddPatient()
+    {
+        PatientModel p = new PatientModel();
+
+        return View(p);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddPatient(PatientModel p)
+    {
+        p.Birthday.ToString();
+        
+        await _service.AddPatient(p);
+
+        return RedirectToAction("Patients");
+    }
+
+    [HttpGet]
+    public IActionResult AddCar()
+    {
+        CarModel c = new CarModel();
+
+        return View(c);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddCar(CarModel c)
+    {
+        await _service.AddCar(c);
+
+        return RedirectToAction("Cars");
+    }
+
+    [HttpGet]
+    public IActionResult AddHospital()
+    {
+        HospitalModel h = new HospitalModel();
+
+        return View(h);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddHospital(HospitalModel h)
+    {
+        await _service.AddHospital(h);
+
+        return RedirectToAction("Hospitals");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

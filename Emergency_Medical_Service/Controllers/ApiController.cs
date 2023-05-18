@@ -140,12 +140,4 @@ public class ApiController : Controller
 
         return Ok();
     }
-
-    [HttpPost(Endpoints.EDIT_RESPOND)]
-    public IActionResult EditRespond(RespondModel model)
-    {
-        _service.EditRespond(model);
-
-        return Ok();
-    }
 }

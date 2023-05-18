@@ -6,6 +6,7 @@ public class RespondModel
     public int DoctorId { get; set; }
     public int CarId { get; set; }
     public int PatientId { get; set; }
+    public double Price { get; set; }
     public string Date { get; set; }
     public string Street { get; set; }
     public string Postal { get; set; }

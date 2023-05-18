@@ -11,7 +11,7 @@ public class Doctor
     public Rank Rank { get; set; }
     public string? Email { get; set; }
     public string? Password { get; set; }
-    public DateOnly Birthday { get; set; }
+    public string Birthday { get; set; }
     public string PhoneNumber { get; set; }
     public string CallSign { get; set; }
     

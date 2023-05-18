@@ -16,8 +16,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\napz\RiderProjects\emergency-medical-service\Emergency_Medical_Service
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/AddCar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRDYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/AddDoctor.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGREb2N0b3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/AddHospital.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRIb3NwaXRhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/AddPatient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRQYXRpZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/AddRespond.cshtml]
