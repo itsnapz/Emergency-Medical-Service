@@ -141,15 +141,42 @@ public class ApiController : Controller
         return Ok();
     }
 
-    [HttpPost(Endpoints.DELETE_RESPOND)]
-    public IActionResult DeleteRespond(int respondId)
+    [HttpDelete("/api/delete/respond/{id}")]
+    public async Task<IActionResult> DeleteRespond(int id)
     {
-        if (respondId == null)
-        {
-            return BadRequest();
-        }
-        
-        _service.DeleteRespond(respondId);
+        _service.DeleteRespond(id);
+
+        return Ok();
+    }
+
+    [HttpDelete("/api/delete/patient/{id}")]
+    public async Task<IActionResult> DeletePatient(int id)
+    {
+        _service.DeletePatient(id);
+
+        return Ok();
+    }
+
+    [HttpDelete("/api/delete/doctor/{id}")]
+    public async Task<IActionResult> DeleteDoctor(int id)
+    {
+        _service.DeleteDoctor(id);
+
+        return Ok();
+    }
+
+    [HttpDelete("/api/delete/car/{id}")]
+    public async Task<IActionResult> DeleteCar(int id)
+    {
+        _service.DeleteCar(id);
+
+        return Ok();
+    }
+
+    [HttpDelete("/api/delete/hospital/{id}")]
+    public async Task<IActionResult> DeleteHospital(int id)
+    {
+        _service.DeleteHospital(id);
 
         return Ok();
     }

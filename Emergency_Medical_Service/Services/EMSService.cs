@@ -90,8 +90,28 @@ public class EMSService
         await _client.PostAsJsonAsync(Endpoints.ADD_HOSPITAL, model);
     }
 
-    public async Task DeleteRespond(int respondId)
+    public async Task DeleteRespond(RespondModel model)
     {
-        await _client.PostAsJsonAsync(Endpoints.DELETE_RESPOND, respondId);
+        await _client.DeleteAsync($"/api/delete/respond/{model.RespondId}");
+    }
+
+    public async Task DeletePatient(PatientModel model)
+    {
+        await _client.DeleteAsync($"/api/delete/patient/{model.PatientId}");
+    }
+
+    public async Task DeleteDoctor(DoctorModel model)
+    {
+        await _client.DeleteAsync($"/api/delete/doctor/{model.DoctorId}");
+    }
+
+    public async Task DeleteCar(CarModel model)
+    {
+        await _client.DeleteAsync($"/api/delete/car/{model.CarId}");
+    }
+
+    public async Task DeleteHospital(HospitalModel model)
+    {
+        await _client.DeleteAsync($"/api/delete/hospital/{model.HospitalId}");
     }
 }

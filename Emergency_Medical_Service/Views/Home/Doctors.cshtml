@@ -28,6 +28,7 @@
                 <td>@doctor.Birthday</td>
                 <td>@doctor.PhoneNumber</td>
                 <td>@doctor.CallSign</td>
+                <td><form asp-action="DeleteDoctor"><a href="/Home/DeleteDoctor?doctorId=@doctor.DoctorId">Delete</a></form></td>
             </tr>
         }
     </table>

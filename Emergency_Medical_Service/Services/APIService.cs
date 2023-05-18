@@ -122,11 +122,43 @@ public class APIService
         _database.SaveChanges();
     }
 
-    public void DeleteRespond(int respondId)
+    public void DeleteRespond(int id)
     {
-        var respond = _database.Responds.FirstOrDefault(x => x.RespondId == respondId);
-        
+        var respond = _database.Responds.Find(id);
+
         _database.Responds.Remove(respond);
+        _database.SaveChanges();
+    }
+
+    public void DeletePatient(int id)
+    {
+        var patient = _database.Patients.Find(id);
+
+        _database.Patients.Remove(patient);
+        _database.SaveChanges();
+    }
+
+    public void DeleteDoctor(int id)
+    {
+        var doctor = _database.Doctors.Find(id);
+
+        _database.Doctors.Remove(doctor);
+        _database.SaveChanges();
+    }
+
+    public void DeleteCar(int id)
+    {
+        var car = _database.Cars.Find(id);
+
+        _database.Cars.Remove(car);
+        _database.SaveChanges();
+    }
+
+    public void DeleteHospital(int id)
+    {
+        var hospital = _database.Hospitals.Find(id);
+
+        _database.Hospitals.Remove(hospital);
         _database.SaveChanges();
     }
 }

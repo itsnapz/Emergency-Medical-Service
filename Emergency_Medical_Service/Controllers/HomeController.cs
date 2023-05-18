@@ -185,30 +185,65 @@ public class HomeController : Controller
 
         return RedirectToAction("Hospitals");
     }
-
-    [HttpGet]
-    public IActionResult DeleteRespond(int respondId)
+    
+    public async Task<IActionResult> DeleteRespond(RespondModel model)
     {
-        var respond = _service.GetAllResponds().GetAwaiter().GetResult()
-            .FirstOrDefault(x => x.RespondId == respondId);
-
-        return View(respond);
-    }
-
-    [HttpPost]
-    public IActionResult DeleteRespond(RespondModel model)
-    {
-        var respond = _service.GetAllResponds().GetAwaiter().GetResult()
-            .FirstOrDefault(x => x.RespondId == model.RespondId);
-        
-        if (respond == null)
+        if (model == null)
         {
             return RedirectToAction("Responds");
         }
 
-        _service.DeleteRespond(respond.RespondId);
+        await _service.DeleteRespond(model);
 
         return RedirectToAction("Responds");
+    }
+
+    public async Task<IActionResult> DeletePatient(PatientModel model)
+    {
+        if (model == null)
+        {
+            return RedirectToAction("Patients");
+        }
+
+        await _service.DeletePatient(model);
+
+        return RedirectToAction("Patients");
+    }
+
+    public async Task<IActionResult> DeleteDoctor(DoctorModel model)
+    {
+        if (model == null)
+        {
+            return RedirectToAction("Doctors");
+        }
+
+        await _service.DeleteDoctor(model);
+
+        return RedirectToAction("Doctors");
+    }
+
+    public async Task<IActionResult> DeleteCar(CarModel model)
+    {
+        if (model == null)
+        {
+            return RedirectToAction("Cars");
+        }
+
+        await _service.DeleteCar(model);
+
+        return RedirectToAction("Cars");
+    }
+
+    public async Task<IActionResult> DeleteHospital(HospitalModel model)
+    {
+        if (model == null)
+        {
+            return RedirectToAction("Hospitals");
+        }
+
+        await _service.DeleteHospital(model);
+
+        return RedirectToAction("Hospitals");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

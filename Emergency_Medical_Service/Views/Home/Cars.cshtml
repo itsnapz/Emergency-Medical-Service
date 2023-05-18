@@ -18,6 +18,7 @@
                 <td>@car.CarId</td>
                 <td>@car.Name</td>
                 <td>@car.Plate</td>
+                <td><form asp-action="DeleteCar"><a href="/Home/DeleteCar?carId=@car.CarId">Delete</a></form></td>
             </tr>
         }
     </table>

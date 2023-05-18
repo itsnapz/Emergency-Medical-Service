@@ -26,7 +26,7 @@
                 <td>@respond.Date</td>
                 <td>@respond.Price</td>
                 <td>@respond.Postal</td>
-                <td><a>Edit</a><a href="/Home/DeleteRespond?respondId=@respond.RespondId"> | Delete</a></td>
+                <td><form asp-action=""><a href="/Home/DeleteRespond?respondId=@respond.RespondId">Delete</a></form></td>
             </tr>
         }
     </table>

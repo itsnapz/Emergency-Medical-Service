@@ -28,6 +28,7 @@
                 <td>@patient.PhoneNumber</td>
                 <td>@patient.Street</td>
                 <td>@patient.Postal</td>
+                <td><form asp-action="DeletePatient"><a href="/Home/DeletePatient?patientId=@patient.PatientId">Delete</a></form></td>
             </tr>
         }
     </table>
