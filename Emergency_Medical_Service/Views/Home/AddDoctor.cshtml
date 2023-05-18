@@ -6,13 +6,14 @@
 }
 
 <div>
-    <form asp-action="AddRespond">
-        <select asp-items="@(new SelectList(Model.Hospitals, "HospitalId", "Name"))" asp-for="HospitalId"></select>
-        <input type="text" placeholder="Street" asp-for="Name"/>
-        <input type="text" placeholder="Postal" asp-for="Surname"/>
+    <form asp-action="AddDoctor">
+        <input type="text" placeholder="Name" asp-for="Name"/>
+        <input type="text" placeholder="Surname" asp-for="Surname"/>
         <input type="date" asp-for="Birthday"/>
-        <input type="text" placeholder="Phone number" asp-for="PhoneNumber"/>
+        <select asp-items="@(Html.GetEnumSelectList<EMS.Lib.Enums.Rank>())" asp-for="Rank"></select>
         <input type="text" placeholder="Call sign" asp-for="CallSign"/>
+        <select asp-items="@(new SelectList(Model.Hospitals, "HospitalId", "Name"))" asp-for="HospitalId"></select>
+        <input type="text" placeholder="Phone number" asp-for="PhoneNumber"/>
         <button type="submit">Save</button>
     </form>
 </div>
