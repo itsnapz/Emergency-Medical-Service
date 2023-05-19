@@ -272,6 +272,70 @@ public class HomeController : Controller
         return RedirectToAction("Responds");
     }
 
+    [HttpGet]
+    public IActionResult EditPatient(int id)
+    {
+        var model = _service.GetAllPatients().GetAwaiter().GetResult().FirstOrDefault(x => x.PatientId == id);
+
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditPatient(PatientModel editedPatient)
+    {
+        await _service.EditPatient(editedPatient);
+        
+        return RedirectToAction("Patients");
+    }
+
+    [HttpGet]
+    public IActionResult EditDoctor(int id)
+    {
+        var model = _service.GetAllDoctors().GetAwaiter().GetResult().FirstOrDefault(x => x.DoctorId == id);
+
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditDoctor(DoctorModel editedDoctor)
+    {
+        await _service.EditDoctor(editedDoctor);
+
+        return RedirectToAction("Doctors");
+    }
+
+    [HttpGet]
+    public IActionResult EditCar(int id)
+    {
+        var model = _service.GetAllCars().GetAwaiter().GetResult().FirstOrDefault(x => x.CarId == id);
+
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditCar(CarModel editedCar)
+    {
+        await _service.EditCar(editedCar);
+
+        return RedirectToAction("Cars");
+    }
+
+    [HttpGet]
+    public IActionResult EditHospital(int id)
+    {
+        var model = _service.GetAllHospitals().GetAwaiter().GetResult().FirstOrDefault(x => x.HospitalId == id);
+
+        return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditHospital(HospitalModel editedHospital)
+    {
+        await _service.EditHospital(editedHospital);
+
+        return RedirectToAction("Hospitals");
+    }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

@@ -1,4 +1,5 @@
-﻿using Emergency_Medical_Service.Services;
+﻿using Emergency_Medical_Service.Data;
+using Emergency_Medical_Service.Services;
 using EMS.Lib;
 using EMS.Lib.Models;
 using Microsoft.AspNetCore.Authentication;
@@ -185,6 +186,38 @@ public class ApiController : Controller
     public async Task<IActionResult> EditRespond(int id, [FromBody] RespondModel model)
     {
         _service.EditRespond(id, model);
+
+        return Ok();
+    }
+
+    [HttpPut("/api/edit/patient/{id}")]
+    public async Task<IActionResult> EditPatient(int id, [FromBody] PatientModel model)
+    {
+        _service.EditPatient(id, model);
+
+        return Ok();
+    }
+
+    [HttpPut("/api/edit/doctor/{id}")]
+    public async Task<IActionResult> EditDoctor(int id, [FromBody] DoctorModel model)
+    {
+        _service.EditDoctor(id, model);
+
+        return Ok();
+    }
+
+    [HttpPut("/api/edit/car/{id}")]
+    public async Task<IActionResult> EditCar(int id, [FromBody] CarModel model)
+    {
+        _service.EditCar(id, model);
+        
+        return Ok();
+    }
+
+    [HttpPut("/api/edit/hospital/{id}")]
+    public async Task<IActionResult> EditHospital(int id, [FromBody] HospitalModel model)
+    {
+        _service.EditHospital(id, model);
 
         return Ok();
     }

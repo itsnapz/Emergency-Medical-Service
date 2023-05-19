@@ -119,4 +119,24 @@ public class EMSService
     {
         await _client.PutAsJsonAsync($"/api/edit/respond/{model.RespondId}", model);
     }
+
+    public async Task EditPatient(PatientModel model)
+    {
+        await _client.PutAsJsonAsync($"/api/edit/patient/{model.PatientId}", model);
+    }
+
+    public async Task EditDoctor(DoctorModel model)
+    {
+        await _client.PutAsJsonAsync($"/api/edit/doctor/{model.DoctorId}", model);
+    }
+
+    public async Task EditCar(CarModel model)
+    {
+        await _client.PutAsJsonAsync($"/api/edit/car/{model.CarId}", model);
+    }
+
+    public async Task EditHospital(HospitalModel model)
+    {
+        await _client.PutAsJsonAsync($"/api/edit/hospital/{model.HospitalId}", model);
+    }
 }

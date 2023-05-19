@@ -27,14 +27,10 @@
                 <td>@respond.Price</td>
                 <td>@respond.Postal</td>
                 <td>
-                    <form asp-action="DeleteRespond">
-                        <a href="/Home/DeleteRespond?respondId=@respond.RespondId">Delete</a>
-                    </form>
+                    <form asp-action="DeleteRespond"><a href="/Home/DeleteRespond?respondId=@respond.RespondId">Delete</a></form>
                 </td>
                 <td>
-                    <form asp-action="EditRespond">
-                        <a href="/Home/EditRespond?id=@respond.RespondId">Edit</a>
-                    </form>
+                    <form asp-action="EditRespond"><a href="/Home/EditRespond?id=@respond.RespondId">Edit</a></form>
                 </td>
             </tr>
         }

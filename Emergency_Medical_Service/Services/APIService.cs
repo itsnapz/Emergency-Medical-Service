@@ -176,4 +176,57 @@ public class APIService
 
         _database.SaveChanges();
     }
+
+    public void EditPatient(int id, PatientModel model)
+    {
+        var dto = model.Adapt<Patient>();
+        var patient = _database.Patients.FirstOrDefault(x => x.PatientId == dto.PatientId);
+
+        patient.Postal = dto.Postal;
+        patient.Street = dto.Street;
+        patient.Name = dto.Street;
+        patient.Surname = dto.Surname;
+        patient.Birthday = dto.Birthday;
+        patient.PhoneNumber = dto.PhoneNumber;
+        patient.Sex = dto.Sex;
+
+        _database.SaveChanges();
+    }
+
+    public void EditDoctor(int id, DoctorModel model)
+    {
+        var dto = model.Adapt<Doctor>();
+        var doctor = _database.Doctors.FirstOrDefault(x => x.DoctorId == dto.DoctorId);
+
+        doctor.HospitalId = dto.HospitalId;
+        doctor.Name = dto.Name;
+        doctor.Surname = dto.Surname;
+        doctor.Birthday = dto.Birthday;
+        doctor.Rank = dto.Rank;
+        doctor.CallSign = dto.CallSign;
+        doctor.PhoneNumber = dto.PhoneNumber;
+
+        _database.SaveChanges();
+    }
+
+    public void EditCar(int id, CarModel model)
+    {
+        var dto = model.Adapt<Car>();
+        var car = _database.Cars.FirstOrDefault(x => x.CarId == dto.CarId);
+
+        car.Name = dto.Name;
+        car.Plate = dto.Plate;
+
+        _database.SaveChanges();
+    }
+
+    public void EditHospital(int id, HospitalModel model)
+    {
+        var dto = model.Adapt<Hospital>();
+        var hospital = _database.Hospitals.FirstOrDefault(x => x.HospitalId == dto.HospitalId);
+
+        hospital.Name = dto.Name;
+        hospital.Postal = dto.Postal;
+        hospital.Street = dto.Street;
+    }
 }
