@@ -12,13 +12,13 @@ public class Authentication : ActionFilterAttribute
     {
         var httpcontext = context.HttpContext;
         var doctorId = httpcontext.Request.Cookies["doctorId"];
+        var controller = context.Controller as Controller;
         if (doctorId != null)
         {
-            context.ActionArguments["doctorid"] = doctorId;
+            context.Result = controller.Redirect("/Home/Responds");
         }
         else
         {
-            var controller = context.Controller as Controller;
             context.Result = controller.Redirect("/Home/Index");
         }
     }

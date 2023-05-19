@@ -5,7 +5,9 @@ using Emergency_Medical_Service.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Emergency_Medical_Service.Models;
 using Emergency_Medical_Service.Services;
+using EMS.Lib.Enums;
 using EMS.Lib.Models;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Emergency_Medical_Service.Controllers;
 
@@ -13,6 +15,7 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly EMSService _service;
+    private ActionExecutingContext _context;
 
     public HomeController(ILogger<HomeController> logger)
     {
@@ -76,6 +79,7 @@ public class HomeController : Controller
         var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
         var hospitals = _service.GetAllHospitals().GetAwaiter().GetResult();
 
+
         foreach (var doctor in doctors)
         {
             doctor.HospitalModel = hospitals.FirstOrDefault(x => x.HospitalId == doctor.HospitalId);
@@ -124,10 +128,26 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult AddDoctor()
     {
-        DoctorModel d = new DoctorModel();
-        d.Hospitals = _service.GetAllHospitals().GetAwaiter().GetResult().ToList();
+        var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
         
-        return View(d);
+        var httpcontext = _context.HttpContext;
+        var cookie = httpcontext.Request.Cookies["doctorId"];
+
+        if (cookie != null)
+        {
+            var foundDoctor = doctors.FirstOrDefault(x => x.DoctorId == int.Parse(cookie));
+
+            if (foundDoctor.Rank == Rank.Head || foundDoctor.Rank == Rank.Dean)
+            {
+                DoctorModel d = new DoctorModel();
+                d.Hospitals = _service.GetAllHospitals().GetAwaiter().GetResult().ToList();
+        
+                return View(d);
+            }
+            return RedirectToAction("Doctors");
+        }
+
+        return RedirectToAction("Doctors");
     }
 
     [HttpPost]
@@ -216,13 +236,26 @@ public class HomeController : Controller
 
     public async Task<IActionResult> DeleteDoctor(DoctorModel model)
     {
-        if (model == null)
+        var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
+        
+        var httpcontext = _context.HttpContext;
+        var cookie = httpcontext.Request.Cookies["doctorId"];
+
+        if (cookie != null)
         {
-            return RedirectToAction("Doctors");
+            var foundDoctor = doctors.FirstOrDefault(x => x.DoctorId == int.Parse(cookie));
+
+            if (foundDoctor.Rank == Rank.Dean || foundDoctor.Rank == Rank.Head)
+            {
+                if (model == null)
+                {
+                    return RedirectToAction("Doctors");
+                }
+                
+                await _service.DeleteDoctor(model);
+            }
         }
-
-        await _service.DeleteDoctor(model);
-
+        
         return RedirectToAction("Doctors");
     }
 

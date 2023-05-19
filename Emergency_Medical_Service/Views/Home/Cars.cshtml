@@ -6,6 +6,7 @@
 }
 
 <div>
+    <a href="/Home/AddCar">Add</a>
     <table>
         <tr>
             <th>Car ID</th>
@@ -18,7 +19,10 @@
                 <td>@car.CarId</td>
                 <td>@car.Name</td>
                 <td>@car.Plate</td>
-                <td><form asp-action="DeleteCar"><a href="/Home/DeleteCar?carId=@car.CarId">Delete</a></form></td>
+                <td>
+                    <form asp-action="DeleteCar"><a href="/Home/DeleteCar?carId=@car.CarId">Delete</a></form></td>
+                <td>
+                    <form asp-action="EditCar"><a href="/Home/EditCar?id=@car.CarId">Edit</a></form></td>
             </tr>
         }
     </table>

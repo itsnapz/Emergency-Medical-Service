@@ -6,6 +6,7 @@
 }
 
 <div>
+    <a href="/Home/AddDoctor">Add</a>
     <table>
         <tr>
             <th>Doctor ID</th>
@@ -28,7 +29,10 @@
                 <td>@doctor.Birthday</td>
                 <td>@doctor.PhoneNumber</td>
                 <td>@doctor.CallSign</td>
-                <td><form asp-action="DeleteDoctor"><a href="/Home/DeleteDoctor?doctorId=@doctor.DoctorId">Delete</a></form></td>
+                <td>
+                    <form asp-action="DeleteDoctor"><a href="/Home/DeleteDoctor?doctorId=@doctor.DoctorId">Delete</a></form></td>
+                <td>
+                    <form asp-action="EditDoctor"><a href="/Home/EditDoctor?id=@doctor.DoctorId">Edit</a></form></td>
             </tr>
         }
     </table>

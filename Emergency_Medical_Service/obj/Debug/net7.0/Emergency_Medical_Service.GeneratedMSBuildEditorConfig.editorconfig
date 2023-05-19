@@ -44,6 +44,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEb2N0b3JzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/EditCar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0Q2FyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/EditDoctor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0RG9jdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/EditHospital.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0SG9zcGl0YWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/EditPatient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0UGF0aWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/napz/RiderProjects/emergency-medical-service/Emergency_Medical_Service/Views/Home/EditRespond.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0UmVzcG9uZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
