@@ -255,8 +255,11 @@ public class HomeController : Controller
     public IActionResult EditRespond(int respondId)
     {
         var model = _service.GetAllResponds().GetAwaiter().GetResult().FirstOrDefault(x => x.RespondId == respondId);
-
-       return View(model);
+        model.Cars = _service.GetAllCars().GetAwaiter().GetResult().ToList();
+        model.Patients = _service.GetAllPatients().GetAwaiter().GetResult().ToList();
+        model.Doctors = _service.GetAllDoctors().GetAwaiter().GetResult().ToList();
+        
+        return View(model);
     }
 
     [HttpPost]

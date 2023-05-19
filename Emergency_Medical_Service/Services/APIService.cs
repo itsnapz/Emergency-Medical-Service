@@ -164,16 +164,17 @@ public class APIService
 
     public void EditRespond(int id, RespondModel model)
     {
-        var respond = _database.Responds.Find(id);
+        var respond = _database.Responds.FirstOrDefault(x => x.RespondId == id);
+        var dto = model.Adapt<Respond>();
 
-        respond.PatientId = model.PatientId;
-        respond.DoctorId = model.DoctorId;
-        respond.CarId = model.CarId;
-        respond.Postal = model.Postal;
-        respond.Price = model.Price;
-        respond.Street = model.Street;
-        respond.Date = DateTime.Now.ToShortDateString();
-
+        respond.PatientId = dto.PatientId;
+        respond.CarId = dto.CarId;
+        respond.DoctorId = dto.DoctorId;
+        respond.Price = dto.Price;
+        respond.Street = dto.Street;
+        respond.Postal = dto.Postal;
+        
+        
         _database.SaveChanges();
     }
 }

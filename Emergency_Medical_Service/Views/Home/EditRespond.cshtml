@@ -1,4 +1,4 @@
-﻿@model EMS.Lib.Models.RespondModel?
+﻿@model EMS.Lib.Models.RespondModel
 
 @{
     ViewBag.Title = "title";
@@ -6,7 +6,7 @@
 }
 
 <div>
-    <form asp-action="AddRespond">
+    <form asp-action="EditRespond">
         <select asp-items="@(new SelectList(Model.Doctors, "DoctorId", "FullName"))" asp-for="DoctorId"></select>
         <select asp-items="@(new SelectList(Model.Patients, "PatientId", "FullName"))" asp-for="PatientId"></select>
         <select asp-items="@(new SelectList(Model.Cars, "CarId", "Name"))" asp-for="CarId"></select>
