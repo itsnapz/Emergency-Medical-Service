@@ -181,10 +181,10 @@ public class ApiController : Controller
         return Ok();
     }
 
-    [HttpPost("/api/edit/respond")]
-    public async Task<IActionResult> EditRespond([FromBody] RespondModel model)
+    [HttpPut("/api/edit/respond/{id}")]
+    public async Task<IActionResult> EditRespond(int id, [FromBody] RespondModel model)
     {
-        _service.EditRespond(model.RespondId, model);
+        _service.EditRespond(id, model);
 
         return Ok();
     }

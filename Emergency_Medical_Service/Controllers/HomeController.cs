@@ -252,9 +252,9 @@ public class HomeController : Controller
 
     
     [HttpGet]
-    public IActionResult EditRespond(int respondId)
+    public IActionResult EditRespond(int id)
     {
-        var model = _service.GetAllResponds().GetAwaiter().GetResult().FirstOrDefault(x => x.RespondId == respondId);
+        var model = _service.GetAllResponds().GetAwaiter().GetResult().FirstOrDefault(x => x.RespondId == id);
         model.Cars = _service.GetAllCars().GetAwaiter().GetResult().ToList();
         model.Patients = _service.GetAllPatients().GetAwaiter().GetResult().ToList();
         model.Doctors = _service.GetAllDoctors().GetAwaiter().GetResult().ToList();
@@ -263,13 +263,11 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> EditRespond(RespondModel model)
+    public async Task<IActionResult> EditRespond(RespondModel editedRespond)
     {
-        if (model == null)
-        {
-            return RedirectToAction("Responds");
-        }
-        _service.EditRespond(model);
+        editedRespond.Date = DateTime.Now.ToShortDateString();
+
+        await  _service.EditRespond(editedRespond);
 
         return RedirectToAction("Responds");
     }

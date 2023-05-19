@@ -117,6 +117,6 @@ public class EMSService
 
     public async Task EditRespond(RespondModel model)
     {
-        await _client.PostAsJsonAsync($"/api/edit/respond", model);
+        await _client.PutAsJsonAsync($"/api/edit/respond/{model.RespondId}", model);
     }
 }

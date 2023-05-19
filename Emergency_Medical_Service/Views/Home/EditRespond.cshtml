@@ -6,7 +6,8 @@
 }
 
 <div>
-    <form asp-action="EditRespond">
+    <form asp-action="EditRespond" method="post">
+        @Html.HiddenFor(m =>  m.RespondId)
         <select asp-items="@(new SelectList(Model.Doctors, "DoctorId", "FullName"))" asp-for="DoctorId"></select>
         <select asp-items="@(new SelectList(Model.Patients, "PatientId", "FullName"))" asp-for="PatientId"></select>
         <select asp-items="@(new SelectList(Model.Cars, "CarId", "Name"))" asp-for="CarId"></select>
