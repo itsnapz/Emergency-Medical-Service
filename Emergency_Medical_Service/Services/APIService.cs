@@ -161,4 +161,19 @@ public class APIService
         _database.Hospitals.Remove(hospital);
         _database.SaveChanges();
     }
+
+    public void EditRespond(int id, RespondModel model)
+    {
+        var respond = _database.Responds.Find(id);
+
+        respond.PatientId = model.PatientId;
+        respond.DoctorId = model.DoctorId;
+        respond.CarId = model.CarId;
+        respond.Postal = model.Postal;
+        respond.Price = model.Price;
+        respond.Street = model.Street;
+        respond.Date = DateTime.Now.ToShortDateString();
+
+        _database.SaveChanges();
+    }
 }

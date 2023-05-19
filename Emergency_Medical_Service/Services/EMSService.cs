@@ -114,4 +114,9 @@ public class EMSService
     {
         await _client.DeleteAsync($"/api/delete/hospital/{model.HospitalId}");
     }
+
+    public async Task EditRespond(RespondModel model)
+    {
+        await _client.PutAsJsonAsync($"/api/edit/respond", model);
+    }
 }

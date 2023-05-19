@@ -1,0 +1,18 @@
+﻿@model EMS.Lib.Models.RespondModel?
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div>
+    <form asp-action="AddRespond">
+        <select asp-items="@(new SelectList(Model.Doctors, "DoctorId", "FullName"))" asp-for="DoctorId"></select>
+        <select asp-items="@(new SelectList(Model.Patients, "PatientId", "FullName"))" asp-for="PatientId"></select>
+        <select asp-items="@(new SelectList(Model.Cars, "CarId", "Name"))" asp-for="CarId"></select>
+        <input type="number" placeholder="Price" value="@Model.Price" asp-for="Price"/>
+        <input type="text" placeholder="Street" value="@Model.Street" asp-for="Street"/>
+        <input type="text" placeholder="Postal" value="@Model.Postal" asp-for="Postal"/>
+        <button type="submit">Save</button>
+    </form>
+</div>

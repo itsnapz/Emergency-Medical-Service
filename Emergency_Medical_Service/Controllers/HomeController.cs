@@ -9,7 +9,6 @@ using EMS.Lib.Models;
 
 namespace Emergency_Medical_Service.Controllers;
 
-[Authentication]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -36,8 +35,8 @@ public class HomeController : Controller
 
         if (doctor != null)
         {
-            _loginModel.LoggedIn = true;
-            return RedirectToAction("Error");
+            Response.Cookies.Append("doctorId", doctor.DoctorId.ToString());
+            return RedirectToAction("Responds");
         }
         else
         {
@@ -45,6 +44,7 @@ public class HomeController : Controller
         }
     }
     
+    [Authentication]
     public IActionResult Responds()
     {
         var responds = _service.GetAllResponds().GetAwaiter().GetResult();
@@ -62,6 +62,7 @@ public class HomeController : Controller
         return View(responds);
     }
     
+    [Authentication]
     public IActionResult Patients()
     {
         var patients = _service.GetAllPatients().GetAwaiter().GetResult();
@@ -69,6 +70,7 @@ public class HomeController : Controller
         return View(patients);
     }
     
+    [Authentication]
     public IActionResult Doctors()
     {
         var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
@@ -82,6 +84,7 @@ public class HomeController : Controller
         return View(doctors);
     }
     
+    [Authentication]
     public IActionResult Cars()
     {
         var cars = _service.GetAllCars().GetAwaiter().GetResult();
@@ -89,6 +92,7 @@ public class HomeController : Controller
         return View(cars);
     }
 
+    [Authentication]
     public IActionResult Hospitals()
     {
         var hospitals = _service.GetAllHospitals().GetAwaiter().GetResult();
@@ -244,6 +248,27 @@ public class HomeController : Controller
         await _service.DeleteHospital(model);
 
         return RedirectToAction("Hospitals");
+    }
+
+    
+    [HttpGet]
+    public IActionResult EditRespond(int respondId)
+    {
+        var model = _service.GetAllResponds().GetAwaiter().GetResult().FirstOrDefault(x => x.RespondId == respondId);
+
+       return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditRespond(RespondModel model)
+    {
+        if (model == null)
+        {
+            return RedirectToAction("Responds");
+        }
+        _service.EditRespond(model);
+
+        return RedirectToAction("Responds");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
