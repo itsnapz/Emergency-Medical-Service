@@ -15,7 +15,7 @@ public class Authentication : ActionFilterAttribute
         var controller = context.Controller as Controller;
         if (doctorId != null)
         {
-            context.Result = controller.Redirect("/Home/Responds");
+            
         }
         else
         {

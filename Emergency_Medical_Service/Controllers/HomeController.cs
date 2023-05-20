@@ -15,26 +15,27 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly EMSService _service;
-    private ActionExecutingContext _context;
+    private readonly ActionExecutingContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, ActionExecutingContext context)
     {
         _logger = logger;
-        _service = new();
+        _service = new EMSService();
+        _context = context;
     }
     
     [HttpGet]
     public IActionResult Index()
     {
-        LoginModel _loginModel = new LoginModel();
-        return View(_loginModel);
+        LoginModel loginModel = new LoginModel();
+        return View(loginModel);
     }
     
     [HttpPost]
-    public IActionResult Index(LoginModel _loginModel)
+    public IActionResult Index(LoginModel loginModel)
     {
         var doctor = _service.GetAllDoctors().GetAwaiter().GetResult()
-            .FirstOrDefault(x => x.Email == _loginModel.Email && x.Password == _loginModel.Password);
+            .FirstOrDefault(x => x.Email == loginModel.Email && x.Password == loginModel.Password);
 
         if (doctor != null)
         {
@@ -104,6 +105,7 @@ public class HomeController : Controller
         return View(hospitals);
     }
 
+    [Authentication]
     [HttpGet]
     public IActionResult AddRespond()
     {
@@ -116,6 +118,7 @@ public class HomeController : Controller
         return View(r);
     }
     
+    [Authentication]
     [HttpPost]
     public async Task<IActionResult> AddRespond(RespondModel r)
     {
@@ -125,6 +128,7 @@ public class HomeController : Controller
         return RedirectToAction("Responds");
     }
 
+    [Authentication]
     [HttpGet]
     public IActionResult AddDoctor()
     {
@@ -150,6 +154,7 @@ public class HomeController : Controller
         return RedirectToAction("Doctors");
     }
 
+    [Authentication]
     [HttpPost]
     public async Task<IActionResult> AddDoctor(DoctorModel d)
     {
@@ -168,6 +173,7 @@ public class HomeController : Controller
         return View(p);
     }
 
+    [Authentication]
     [HttpPost]
     public async Task<IActionResult> AddPatient(PatientModel p)
     {
@@ -178,6 +184,7 @@ public class HomeController : Controller
         return RedirectToAction("Patients");
     }
 
+    [Authentication]
     [HttpGet]
     public IActionResult AddCar()
     {
@@ -186,6 +193,7 @@ public class HomeController : Controller
         return View(c);
     }
 
+    [Authentication]
     [HttpPost]
     public async Task<IActionResult> AddCar(CarModel c)
     {
@@ -194,6 +202,7 @@ public class HomeController : Controller
         return RedirectToAction("Cars");
     }
 
+    [Authentication]
     [HttpGet]
     public IActionResult AddHospital()
     {
@@ -202,6 +211,7 @@ public class HomeController : Controller
         return View(h);
     }
 
+    [Authentication]
     [HttpPost]
     public async Task<IActionResult> AddHospital(HospitalModel h)
     {
@@ -261,25 +271,59 @@ public class HomeController : Controller
 
     public async Task<IActionResult> DeleteCar(CarModel model)
     {
-        if (model == null)
+        var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
+        
+        var httpcontext = _context.HttpContext;
+        var cookie = httpcontext.Request.Cookies["doctorId"];
+
+        if (cookie != null)
         {
-            return RedirectToAction("Cars");
+            var foundDoctor = _service.GetAllDoctors().GetAwaiter().GetResult()
+                .First(x => x.DoctorId == int.Parse(cookie));
+
+            if (foundDoctor.Rank == Rank.Train)
+            {
+                return RedirectToAction("Cars");
+            }
+            else
+            {
+                if (model == null)
+                {
+                    return RedirectToAction("Cars");
+                }
+                await _service.DeleteCar(model);
+                
+            }
         }
-
-        await _service.DeleteCar(model);
-
-        return RedirectToAction("Cars");
+        return RedirectToAction("Hospitals");
     }
 
     public async Task<IActionResult> DeleteHospital(HospitalModel model)
     {
-        if (model == null)
+        var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
+        
+        var httpcontext = _context.HttpContext;
+        var cookie = httpcontext.Request.Cookies["doctorId"];
+
+        if (cookie != null)
         {
-            return RedirectToAction("Hospitals");
+            var foundDoctor = _service.GetAllDoctors().GetAwaiter().GetResult()
+                .First(x => x.DoctorId == int.Parse(cookie));
+
+            if (foundDoctor.Rank == Rank.Train)
+            {
+                return RedirectToAction("Hospitals");
+            }
+            else
+            {
+                if (model == null)
+                {
+                    return RedirectToAction("Hospitals");
+                }
+                await _service.DeleteHospital(model);
+                
+            }
         }
-
-        await _service.DeleteHospital(model);
-
         return RedirectToAction("Hospitals");
     }
 
