@@ -5,4 +5,15 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<div>
+    <form asp-action="EditDoctor">
+        <input type="text" value="@Model.Name" asp-for="Name"/>
+        <input type="text" value="@Model.Surname" asp-for="Surname"/>
+        <input type="date" value="@Model.Birthday" asp-for="Birthday"/>
+        <select asp-items="@(Html.GetEnumSelectList<EMS.Lib.Enums.Rank>())" asp-for="Rank"></select>
+        <input type="text" value="@Model.CallSign" asp-for="CallSign"/>
+        <input type="text" value="@Model.PhoneNumber" asp-for="PhoneNumber"/>
+        <select asp-items="@(new SelectList(Model.Hospitals, "HospitalId", "Name"))" asp-for="HospitalId"></select>
+        <button type="submit">Save</button>
+    </form>
+</div>

@@ -184,7 +184,7 @@ public class APIService
 
         patient.Postal = dto.Postal;
         patient.Street = dto.Street;
-        patient.Name = dto.Street;
+        patient.Name = dto.Name;
         patient.Surname = dto.Surname;
         patient.Birthday = dto.Birthday;
         patient.PhoneNumber = dto.PhoneNumber;

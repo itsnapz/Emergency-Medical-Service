@@ -5,4 +5,12 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<div>
+    <form asp-action="EditHospital">
+        @Html.HiddenFor(x=>x.HospitalId)
+        <input type="text" value="@Model.Name" asp-for="Name"/>
+        <input type="text" value="@Model.Postal" asp-for="Postal"/>
+        <input type="text" value="@Model.Street" asp-for="Street"/>
+        <button type="submit">Save</button>
+    </form>
+</div>

@@ -5,4 +5,11 @@
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<div>
+    <form asp-action="EditCar">
+        @Html.HiddenFor(x=>x.CarId)
+        <input type="text" value="@Model.Name" asp-for="Name"/>
+        <input type="text" value="@Model.Plate" asp-for="Plate"/>
+        <button type="submit">Save</button>
+    </form>
+</div>

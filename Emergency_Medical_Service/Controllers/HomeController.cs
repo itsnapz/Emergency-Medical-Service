@@ -17,11 +17,10 @@ public class HomeController : Controller
     private readonly EMSService _service;
     private readonly ActionExecutingContext _context;
 
-    public HomeController(ILogger<HomeController> logger, ActionExecutingContext context)
+    public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
         _service = new EMSService();
-        _context = context;
     }
     
     [HttpGet]
@@ -222,11 +221,6 @@ public class HomeController : Controller
     
     public async Task<IActionResult> DeleteRespond(RespondModel model)
     {
-        if (model == null)
-        {
-            return RedirectToAction("Responds");
-        }
-
         await _service.DeleteRespond(model);
 
         return RedirectToAction("Responds");
@@ -234,11 +228,6 @@ public class HomeController : Controller
 
     public async Task<IActionResult> DeletePatient(PatientModel model)
     {
-        if (model == null)
-        {
-            return RedirectToAction("Patients");
-        }
-
         await _service.DeletePatient(model);
 
         return RedirectToAction("Patients");
