@@ -6,16 +6,21 @@
 
 
 
-<div style="display: flex; justify-content: center;">
-    <form asp-action="Index" style="display: flex; align-items: center">
-        <div class="input-group form-group">
-            <input type="text" class="form-control" placeholder="E-mail" asp-for="Email"/>
+<div class="vh-100 d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center flex-column" style="background: #e3e3e3; border-radius: 10px; height: 400px; width: 300px">
+        <div class="d-flex align-top">
+            <h2 style="font-weight: bold; font-size: 36px; margin-bottom: 40%">Login</h2> 
         </div>
-        <div class="input-group form-group">
-            <input type="password" class="form-control" placeholder="password" asp-for="Password" style="margin-top: 5%"/>
-        </div>
-        <div class="form-group" style="justify-content: center; display: flex; margin-top: 5%">
-            <input type="submit" value="Login" class="login_btn">
-        </div>
-    </form>
+        <form asp-action="Index" style="">
+            <div class="input-group form-group">
+                <input type="text" class="form-control" placeholder="E-mail" asp-for="Email" style="border: none; border-bottom: 2px solid black; background: #ffffff"/>
+            </div>
+            <div class="input-group form-group">
+                <input type="password" class="form-control" placeholder="password" asp-for="Password" style="margin-top: 15%; border: none; border-bottom: 2px solid black; background: #ffffff"/>
+            </div>
+            <div class="form-group d-flex align-items-center justify-content-center" style="margin-top: 15%">
+                <input type="submit" value="Login" class="login_btn" style="border: none; color: #ffffff; text-align: center; display: inline-block; border-radius: 5px; font-size: 16px; background-color: #4CAF50; padding: 10px 20px; ">
+            </div>
+        </form>
+    </div>
 </div>
