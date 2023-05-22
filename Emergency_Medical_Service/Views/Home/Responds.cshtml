@@ -7,6 +7,7 @@
 
 <div>
     <a href="/Home/AddRespond">New</a>
+    <a href="#" id="printButton">Print</a>
     <table>
         <tr>
             <th>Respond ID</th>
@@ -56,3 +57,9 @@
       background-color: #dddddd;
     }
 </style>
+
+<script>
+    document.getElementById('printButton').addEventListener('click', function () {
+        window.print();
+    });
+</script>

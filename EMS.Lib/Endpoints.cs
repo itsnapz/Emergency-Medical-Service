@@ -21,16 +21,4 @@ public class Endpoints
     public const string ADD_DOCTOR = "/api/add/doctor";
     public const string ADD_CAR = "/api/add/car";
     public const string ADD_HOSPITAL = "/api/add/hospital";
-
-    public const string EDIT_RESPOND = "/api/edit/respond";
-    public const string EDIT_PATIENT = "/api/edit/patient";
-    public const string EDIT_DOCTOR = "/api/edit/doctor";
-    public const string EDIT_CAR = "/api/edit/car";
-    public const string EDIT_HOSPITAL = "/api/edit/hospital";
-
-    public const string DELETE_RESPOND = "/api/delete/respond/";
-    public const string DELETE_PATIENT = "/api/delete/patient";
-    public const string DELETE_DOCTOR = "/api/delete/patient";
-    public const string DELETE_CAR = "/api/delete/car";
-    public const string DELETE_HOSPITAL = "/api/delete/hospital";
 }
