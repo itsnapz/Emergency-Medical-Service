@@ -6,7 +6,10 @@
 }
 
 <div>
-    <a href="/Home/AddDoctor">Add</a>
+    <div class="d-flex justify-content-center">
+        <a href="/Home/AddDoctor" style="margin-right: 1%; text-decoration: none; font-size: 22px; color: #08b9f4; font-weight: bold">New</a>
+        <a href="#" id="printButton" style="margin-left: 1%; text-decoration: none; font-size: 22px; color: darkgrey; font-weight: bold">Print</a>
+    </div>
     <table>
         <tr>
             <th>Doctor ID</th>
@@ -30,9 +33,9 @@
                 <td>@doctor.PhoneNumber</td>
                 <td>@doctor.CallSign</td>
                 <td>
-                    <form asp-action="DeleteDoctor"><a href="/Home/DeleteDoctor?doctorId=@doctor.DoctorId">Delete</a></form></td>
+                    <form asp-action="DeleteDoctor"><a href="/Home/DeleteDoctor?doctorId=@doctor.DoctorId" style="text-decoration: none; color: #ff0050;">Delete</a></form></td>
                 <td>
-                    <form asp-action="EditDoctor"><a href="/Home/EditDoctor?id=@doctor.DoctorId">Edit</a></form></td>
+                    <form asp-action="EditDoctor"><a href="/Home/EditDoctor?id=@doctor.DoctorId" style="text-decoration: none; color: #08b9f4">Edit</a></form></td>
             </tr>
         }
     </table>
@@ -56,3 +59,9 @@
       background-color: #dddddd;
     }
 </style>
+
+<script>
+    document.getElementById('printButton').addEventListener('click', function () {
+        window.print();
+    });
+</script>

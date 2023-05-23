@@ -1,13 +1,10 @@
 ﻿using System.Diagnostics;
-using System.Dynamic;
-using System.Runtime.InteropServices.JavaScript;
 using Emergency_Medical_Service.Attributes;
 using Microsoft.AspNetCore.Mvc;
 using Emergency_Medical_Service.Models;
 using Emergency_Medical_Service.Services;
 using EMS.Lib.Enums;
 using EMS.Lib.Models;
-using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Emergency_Medical_Service.Controllers;
 
@@ -15,7 +12,6 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly EMSService _service;
-    private readonly ActionExecutingContext _context;
 
     public HomeController(ILogger<HomeController> logger)
     {
@@ -26,8 +22,14 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        LoginModel loginModel = new LoginModel();
-        return View(loginModel);
+        string cookie = Request.Cookies["doctorId"];
+        if (string.IsNullOrEmpty(cookie))
+        {
+            LoginModel loginModel = new LoginModel();
+            return View(loginModel);
+        }
+
+        return RedirectToAction("Responds");
     }
     
     [HttpPost]
@@ -133,10 +135,9 @@ public class HomeController : Controller
     {
         var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
         
-        var httpcontext = _context.HttpContext;
-        var cookie = httpcontext.Request.Cookies["doctorId"];
+        string cookie = Request.Cookies["doctorId"];
 
-        if (cookie != null)
+        if (!string.IsNullOrEmpty(cookie))
         {
             var foundDoctor = doctors.FirstOrDefault(x => x.DoctorId == int.Parse(cookie));
 
@@ -237,22 +238,26 @@ public class HomeController : Controller
     {
         var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
         
-        var httpcontext = _context.HttpContext;
-        var cookie = httpcontext.Request.Cookies["doctorId"];
+        string cookie = Request.Cookies["doctorId"];
 
-        if (cookie != null)
+        if (!string.IsNullOrEmpty(cookie))
         {
             var foundDoctor = doctors.FirstOrDefault(x => x.DoctorId == int.Parse(cookie));
 
-            if (foundDoctor.Rank == Rank.Dean || foundDoctor.Rank == Rank.Head)
+            if (foundDoctor.DoctorId != model.DoctorId)
             {
-                if (model == null)
+                if (foundDoctor.Rank == Rank.Dean || foundDoctor.Rank == Rank.Head)
                 {
-                    return RedirectToAction("Doctors");
+                    if (model == null)
+                    {
+                        return RedirectToAction("Doctors");
+                    }
+                    
+                    await _service.DeleteDoctor(model);
                 }
-                
-                await _service.DeleteDoctor(model);
             }
+            
+            return RedirectToAction("Doctors");
         }
         
         return RedirectToAction("Doctors");
@@ -262,27 +267,22 @@ public class HomeController : Controller
     {
         var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
         
-        var httpcontext = _context.HttpContext;
-        var cookie = httpcontext.Request.Cookies["doctorId"];
+        string cookie = Request.Cookies["doctorId"];
 
-        if (cookie != null)
+        if (!string.IsNullOrEmpty(cookie))
         {
             var foundDoctor = _service.GetAllDoctors().GetAwaiter().GetResult()
                 .First(x => x.DoctorId == int.Parse(cookie));
 
-            if (foundDoctor.Rank == Rank.Train)
+            if (foundDoctor.Rank != Rank.Dean || foundDoctor.Rank != Rank.Head)
             {
                 return RedirectToAction("Cars");
             }
-            else
+            if (model == null)
             {
-                if (model == null)
-                {
                     return RedirectToAction("Cars");
-                }
-                await _service.DeleteCar(model);
-                
             }
+            await _service.DeleteCar(model);
         }
         return RedirectToAction("Hospitals");
     }
@@ -291,10 +291,9 @@ public class HomeController : Controller
     {
         var doctors = _service.GetAllDoctors().GetAwaiter().GetResult();
         
-        var httpcontext = _context.HttpContext;
-        var cookie = httpcontext.Request.Cookies["doctorId"];
+        string cookie = Request.Cookies["doctorId"];
 
-        if (cookie != null)
+        if (string.IsNullOrEmpty(cookie))
         {
             var foundDoctor = _service.GetAllDoctors().GetAwaiter().GetResult()
                 .First(x => x.DoctorId == int.Parse(cookie));
@@ -358,6 +357,7 @@ public class HomeController : Controller
     public IActionResult EditDoctor(int id)
     {
         var model = _service.GetAllDoctors().GetAwaiter().GetResult().FirstOrDefault(x => x.DoctorId == id);
+        model.Hospitals = _service.GetAllHospitals().GetAwaiter().GetResult().ToList();
 
         return View(model);
     }

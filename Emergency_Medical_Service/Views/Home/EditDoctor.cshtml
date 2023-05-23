@@ -7,12 +7,13 @@
 
 <div>
     <form asp-action="EditDoctor">
-        <input type="text" value="@Model.Name" asp-for="Name"/>
-        <input type="text" value="@Model.Surname" asp-for="Surname"/>
-        <input type="date" value="@Model.Birthday" asp-for="Birthday"/>
+        @Html.HiddenFor(m=>m.DoctorId)
+        <input type="text" asp-for="Name" value="@Model.Name"/>
+        <input type="text" asp-for="Surname" value="@Model.Surname"/>
+        <input type="date" asp-for="Birthday" value="@Model.Birthday"/>
         <select asp-items="@(Html.GetEnumSelectList<EMS.Lib.Enums.Rank>())" asp-for="Rank"></select>
-        <input type="text" value="@Model.CallSign" asp-for="CallSign"/>
-        <input type="text" value="@Model.PhoneNumber" asp-for="PhoneNumber"/>
+        <input type="text" asp-for="CallSign" value="@Model.CallSign"/>
+        <input type="text" asp-for="PhoneNumber" value="@Model.PhoneNumber"/>
         <select asp-items="@(new SelectList(Model.Hospitals, "HospitalId", "Name"))" asp-for="HospitalId"></select>
         <button type="submit">Save</button>
     </form>

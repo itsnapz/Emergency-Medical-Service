@@ -6,6 +6,10 @@
 }
 
 <div>
+    <div class="d-flex justify-content-center">
+        <a href="/Home/AddDoctor" style="margin-right: 1%; text-decoration: none; font-size: 22px; color: #08b9f4; font-weight: bold">New</a>
+        <a href="#" id="printButton" style="margin-left: 1%; text-decoration: none; font-size: 22px; color: darkgrey; font-weight: bold">Print</a>
+    </div>
     <a href="/Home/AddCar">Add</a>
     <table>
         <tr>
@@ -20,9 +24,9 @@
                 <td>@car.Name</td>
                 <td>@car.Plate</td>
                 <td>
-                    <form asp-action="DeleteCar"><a href="/Home/DeleteCar?carId=@car.CarId">Delete</a></form></td>
+                    <form asp-action="DeleteCar"><a href="/Home/DeleteCar?carId=@car.CarId" style="text-decoration: none; color: #ff0050;">Delete</a></form></td>
                 <td>
-                    <form asp-action="EditCar"><a href="/Home/EditCar?id=@car.CarId">Edit</a></form></td>
+                    <form asp-action="EditCar"><a href="/Home/EditCar?id=@car.CarId" style="text-decoration: none; color: #08b9f4">Edit</a></form></td>
             </tr>
         }
     </table>
@@ -46,3 +50,9 @@
       background-color: #dddddd;
     }
 </style>
+
+<script>
+    document.getElementById('printButton').addEventListener('click', function () {
+        window.print();
+    });
+</script>

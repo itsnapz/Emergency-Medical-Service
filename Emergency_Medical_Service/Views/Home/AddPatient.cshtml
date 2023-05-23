@@ -7,10 +7,10 @@
 
 <div>
     <form asp-action="AddPatient">
-        <input type="text" placeholder="Name" asp-for="Name"/>
-        <input type="text" placeholder="Surname" asp-for="Surname"/>
-        <input type="Date" asp-for="Birthday"/>
-        <select asp-items="@(Html.GetEnumSelectList<EMS.Lib.Enums.Sex>())" asp-for="Sex"></select>
+        <input class="inputik" type="text" placeholder="Name" asp-for="Name"/>
+        <input class="inputik" type="text" placeholder="Surname" asp-for="Surname"/>
+        <input class="inputik" type="Date" asp-for="Birthday"/>
+        <select class="selectik" asp-items="@(Html.GetEnumSelectList<EMS.Lib.Enums.Sex>())" asp-for="Sex"></select>
         <input type="text" placeholder="Phone number" asp-for="PhoneNumber"/>
         <input type="text" placeholder="Street" asp-for="Street"/>
         <input type="text" placeholder="Postal" asp-for="Postal"/>
