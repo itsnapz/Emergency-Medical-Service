@@ -5,23 +5,39 @@
     Layout = "_Layout";
 }
 
-<div>
-    <div>
-        <form asp-action="EditRespond" method="post">
+<div class="min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="d-flex align-items-center flex-column">
+        <form asp-action="EditRespond" method="post" class="d-flex justify-content-center flex-column align-items-center" style="width: 300px">
             @Html.HiddenFor(m =>  m.RespondId)
-            <select asp-items="@(new SelectList(Model.Doctors, "DoctorId", "FullName"))" asp-for="DoctorId"></select>
-            <select asp-items="@(new SelectList(Model.Patients, "PatientId", "FullName"))" asp-for="PatientId"></select>
-            <select asp-items="@(new SelectList(Model.Cars, "CarId", "Name"))" asp-for="CarId"></select>
-            <input type="number" placeholder="Price" value="@Model.Price" asp-for="Price"/>
-            <input type="text" placeholder="Street" value="@Model.Street" asp-for="Street"/>
-            <input type="text" placeholder="Postal" value="@Model.Postal" asp-for="Postal"/>
-            <button type="submit">Save</button>
+            <select class="selectik" asp-items="@(new SelectList(Model.Doctors, "DoctorId", "FullName"))" asp-for="DoctorId"></select>
+            <select class="selectik" asp-items="@(new SelectList(Model.Patients, "PatientId", "FullName"))" asp-for="PatientId"></select>
+            <select class="selectik" asp-items="@(new SelectList(Model.Cars, "CarId", "Name"))" asp-for="CarId"></select>
+            <input class="inputik" type="number" placeholder="Price" value="@Model.Price" asp-for="Price"/>
+            <input class="inputik" type="text" placeholder="Street" value="@Model.Street" asp-for="Street"/>
+            <input class="inputik" type="text" placeholder="Postal" value="@Model.Postal" asp-for="Postal"/>
+            <button type="submit" style="border: none; color: white; text-align: center; display: inline-block; border-radius: 10px; font-size: 20px; background-color: #08b9f4; padding: 7px 30px; font-weight: bold">Save</button>
         </form>
     </div>
 </div>
 
 
 <style>
+    .inputik {
+        border: none;
+        border-bottom: 3px solid #08b9f4;
+        font-weight: 700;
+        margin-bottom: 10%;
+        font-size: 18px;
+    }
     
+    .selectik {
+        margin-bottom: 15%; 
+        width: 250px;
+        background: white;
+        border: none;
+        border-bottom: 3px solid #08b9f4;
+        font-weight: 700;
+        font-size: 18px;
+    }
 </style>
 

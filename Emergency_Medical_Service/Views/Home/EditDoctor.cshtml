@@ -5,16 +5,40 @@
     Layout = "_Layout";
 }
 
-<div>
-    <form asp-action="EditDoctor">
-        @Html.HiddenFor(m=>m.DoctorId)
-        <input type="text" asp-for="Name" value="@Model.Name"/>
-        <input type="text" asp-for="Surname" value="@Model.Surname"/>
-        <input type="date" asp-for="Birthday" value="@Model.Birthday"/>
-        <select asp-items="@(Html.GetEnumSelectList<EMS.Lib.Enums.Rank>())" asp-for="Rank"></select>
-        <input type="text" asp-for="CallSign" value="@Model.CallSign"/>
-        <input type="text" asp-for="PhoneNumber" value="@Model.PhoneNumber"/>
-        <select asp-items="@(new SelectList(Model.Hospitals, "HospitalId", "Name"))" asp-for="HospitalId"></select>
-        <button type="submit">Save</button>
-    </form>
+<div class="min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="d-flex align-items-center flex-column">
+        <form asp-action="EditDoctor" class="d-flex justify-content-center align-items-center flex-column" style="width: 300px">
+            @Html.HiddenFor(m=>m.DoctorId)
+            <input class="inputik" type="text" asp-for="Name" value="@Model.Name"/>
+            <input class="inputik" type="text" asp-for="Surname" value="@Model.Surname"/>
+            <input class="inputik" type="date" asp-for="Birthday" value="@Model.Birthday"/>
+            <select class="selectik" asp-items="@(Html.GetEnumSelectList<EMS.Lib.Enums.Rank>())" asp-for="Rank"></select>
+            <input class="inputik" type="text" asp-for="CallSign" value="@Model.CallSign"/>
+            <input class="inputik" type="text" asp-for="PhoneNumber" value="@Model.PhoneNumber"/>
+            <select class="selectik" asp-items="@(new SelectList(Model.Hospitals, "HospitalId", "Name"))" asp-for="HospitalId"></select>
+            <button type="submit" style="border: none; color: black; text-align: center; display: inline-block; border-radius: 10px; font-size: 16px; background-color: white; padding: 10px 20px;">Save</button>
+        </form>
+    </div>
 </div>
+
+
+<style>
+    .inputik {
+        border: none;
+        border-bottom: 3px solid #08b9f4;
+        font-weight: 700;
+        margin-bottom: 10%;
+        font-size: 18px;
+    }
+    
+    .selectik {
+        margin-bottom: 15%; 
+        width: 250px;
+        background: white;
+        border: none;
+        border-bottom: 3px solid #08b9f4;
+        font-weight: 700;
+        font-size: 18px;
+    }
+</style>
+

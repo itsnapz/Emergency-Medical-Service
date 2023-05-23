@@ -5,16 +5,39 @@
     Layout = "_Layout";
 }
 
-<div>
-    <form asp-action="EditPatient">
-        @Html.HiddenFor(m => m.PatientId)
-        <input type="text" asp-for="Name" value="@Model.Name"/>
-        <input type="text" asp-for="Surname" value="@Model.Surname"/>
-        <input type="date" asp-for="Birthday" value="@Model.Birthday"/>
-        <select asp-items="@(Html.GetEnumSelectList<EMS.Lib.Enums.Sex>())" asp-for="Sex"></select>
-        <input type="text" asp-for="PhoneNumber" value="@Model.PhoneNumber"/>
-        <input type="text" asp-for="Street" value="@Model.Street"/>
-        <input type="text" asp-for="Postal" value="@Model.Postal"/>
-        <button type="submit">Save</button>
-    </form>
+<div class="min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="d-flex align-items-center flex-column">
+        <form asp-action="EditPatient" class="d-flex justify-content-center align-items-center flex-column" style="width: 300px">
+            @Html.HiddenFor(m => m.PatientId)
+            <input class="inputik" type="text" asp-for="Name" value="@Model.Name"/>
+            <input class="inputik" type="text" asp-for="Surname" value="@Model.Surname"/>
+            <input class="inputik" type="date" asp-for="Birthday" value="@Model.Birthday"/>
+            <select class="selectik" asp-items="@(Html.GetEnumSelectList<EMS.Lib.Enums.Sex>())" asp-for="Sex"></select>
+            <input class="inputik" type="text" asp-for="PhoneNumber" value="@Model.PhoneNumber"/>
+            <input class="inputik" type="text" asp-for="Street" value="@Model.Street"/>
+            <input class="inputik" type="text" asp-for="Postal" value="@Model.Postal"/>
+            <button type="submit" style="border: none; color: white; text-align: center; display: inline-block; border-radius: 10px; font-size: 20px; background-color: #08b9f4; padding: 7px 30px; font-weight: bold">Save</button>
+        </form>
+    </div>
 </div>
+
+
+<style>
+    .inputik {
+        border: none;
+        border-bottom: 3px solid #08b9f4;
+        font-weight: 700;
+        margin-bottom: 10%;
+        font-size: 18px;
+    }
+    
+    .selectik {
+        margin-bottom: 15%; 
+        width: 250px;
+        background: white;
+        border: none;
+        border-bottom: 3px solid #08b9f4;
+        font-weight: 700;
+        font-size: 18px;
+    }
+</style>

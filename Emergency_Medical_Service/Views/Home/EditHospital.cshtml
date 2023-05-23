@@ -5,12 +5,25 @@
     Layout = "_Layout";
 }
 
-<div>
-    <form asp-action="EditHospital">
-        @Html.HiddenFor(x=>x.HospitalId)
-        <input type="text" value="@Model.Name" asp-for="Name"/>
-        <input type="text" value="@Model.Postal" asp-for="Postal"/>
-        <input type="text" value="@Model.Street" asp-for="Street"/>
-        <button type="submit">Save</button>
-    </form>
+<div class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="d-flex align-items-center flex-column">
+        <form asp-action="EditHospital" class="d-flex justify-content-center align-items-center flex-column" style="width: 300px">
+            @Html.HiddenFor(x=>x.HospitalId)
+            <input class="inputik" type="text" value="@Model.Name" asp-for="Name"/>
+            <input class="inputik" type="text" value="@Model.Postal" asp-for="Postal"/>
+            <input class="inputik" type="text" value="@Model.Street" asp-for="Street"/>
+            <button type="submit" style="border: none; color: white; text-align: center; display: inline-block; border-radius: 10px; font-size: 20px; background-color: #08b9f4; padding: 7px 30px; font-weight: bold">Save</button>
+        </form>
+    </div>
 </div>
+
+
+<style>
+    .inputik {
+        border: none;
+        border-bottom: 3px solid #08b9f4;
+        font-weight: 700;
+        margin-bottom: 10%;
+        font-size: 18px;
+    }
+</style>
