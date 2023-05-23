@@ -5,11 +5,24 @@
     Layout = "_Layout";
 }
 
-<div>
-    <form asp-action="AddHospital">
-        <input type="text" placeholder="Name" asp-for="Name"/>
-        <input type="text" placeholder="Street" asp-for="Street"/>
-        <input type="text" placeholder="Postal" asp-for="Postal"/>
-        <button type="submit">Save</button>
-    </form>
+<div class="min-vh-100 d-flex justify-content-center align-items-center">
+    <div class="align-items-center d-flex flex-column">
+        <form asp-action="AddHospital" class="d-flex justify-content-center align-items-center flex-column" style="width: 300px">
+            <input class="inputik" type="text" placeholder="Name" asp-for="Name"/>
+            <input class="inputik" type="text" placeholder="Street" asp-for="Street"/>
+            <input class="inputik" type="text" placeholder="Postal" asp-for="Postal"/>
+            <button type="submit" style="border: none; color: white; text-align: center; display: inline-block; border-radius: 10px; font-size: 20px; background-color: #08b9f4; padding: 7px 30px; font-weight: bold">Save</button>
+        </form>
+    </div>
 </div>
+
+
+<style>
+    .inputik {
+        border: none;
+        border-bottom: 3px solid #08b9f4;
+        font-weight: 700;
+        margin-bottom: 10%;
+        font-size: 18px;
+    }
+</style>
